@@ -505,7 +505,7 @@ const languages: Record<LanguageKey, LanguageContent> = {
       },
       travel: {
         title: "旅行マップ",
-        description: "アジアの様々な地域を探検する機会に恵まれました東京の賑やな街並みから、プーケットの静かなビー��、クアラルンプールの多様な文化、そしてフィリピンの美しい島々まで。それぞれの目的地で独自の体験と忘れられない思い出を得ることができました。",
+        description: "アジアの様々な地域を探検する機会に恵まれました東京の賑やな街並みから、プーケットの静かなビー、クアラ��ンプールの多様な文化、そしてフィリピンの美しい島々まで。それぞれの目的地で独自の体験と忘れられない思い出を得ることができました。",
         visitedPlaces: "訪問した場所",
         plannedPlaces: "訪問予定の場所"
       }
@@ -1580,6 +1580,7 @@ interface TimelineItemProps {
     collapse: string;
     projects: string;
   };
+  lang: LanguageKey;  // 添加 lang 属性
 }
 
 // 修改 TimelineItem 组件定义
@@ -1590,7 +1591,8 @@ function TimelineItem({
   location,
   description,
   projects,
-  translations
+  translations,
+  lang  // 添加 lang 参数
 }: TimelineItemProps) {
   const [isExpanded, setIsExpanded] = useState(false);
 
@@ -1758,4 +1760,21 @@ function ProjectCard({ project, index, lang }: { project: Project | WorkExperien
       </div>
     </motion.div>
   );
+}
+
+// 添加 WorkExperienceProject 接口定义
+interface WorkExperienceProject {
+  title: {
+    en: string;
+    zh: string;
+    ja: string;
+  };
+  type: string;
+  description: {
+    en: string;
+    zh: string;
+    ja: string;
+  };
+  details: string[];
+  technologies: string[];
 }
