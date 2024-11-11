@@ -13,15 +13,8 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion"
-import { ComposableMap, Geographies, Geography, Marker as SimpleMarker, ZoomableGroup } from "react-simple-maps"
-import { MapContainer, TileLayer, Marker as LeafletMarker, Popup } from 'react-leaflet';
-import 'leaflet/dist/leaflet.css';
-
-// 导入本地地图数据
-import { worldMapData } from '@/data/world-map';
-
-
-
+import 'leaflet/dist/leaflet.css'
+import Image from 'next/image'
 
 // 在文件顶部添加 dynamic import
 import dynamic from 'next/dynamic';
@@ -612,9 +605,11 @@ export function PortfolioPage() {
                   repeatType: "reverse",
                 }}
               />
-              <img
+              <Image
                 src="https://images.unsplash.com/photo-1522252234503-e356532cafd5?fit=crop&w=600&h=1400"
                 alt="Profile"
+                width={600}
+                height={1400}
                 className="w-full h-auto rounded-lg shadow-lg relative z-10 transition-transform duration-300 group-hover:scale-[1.02]"
               />
             </div>
@@ -1259,9 +1254,11 @@ export function PortfolioPage() {
                 className="bg-secondary/30 p-6 rounded-lg"
               >
                 <div className="flex flex-col md:flex-row gap-6">
-                  <img
+                  <Image
                     src={projects[currentProject].imageSrc}
                     alt={projects[currentProject].title}
+                    width={800}
+                    height={300}
                     className="w-full md:w-1/2 h-[300px] object-cover rounded-lg"
                   />
                   <div className="md:w-1/2">
