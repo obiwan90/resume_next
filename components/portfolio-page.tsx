@@ -20,11 +20,18 @@ import { workExperience } from '@/translations/work-experience';
 
 // 添加类型定义
 interface Country {
-  name: string;
-  nameZh: string;
-  coordinates: [number, number]; // 明确指定为元组类型
+  name: {
+    en: string;
+    zh: string;
+    ja: string;
+  };
+  coordinates: [number, number];
   type: string;
-  highlights: string[];
+  highlights: {
+    en: string[];
+    zh: string[];
+    ja: string[];
+  };
   color: string;
 }
 
@@ -370,7 +377,7 @@ const languages: Record<LanguageKey, LanguageContent> = {
         stats: {
           title: "总体统计",
           totalHours: "游戏时长：2000+小时",
-          achievements: "获得成就：500+",
+          achievements: "获得成就500+",
           teammates: "组队玩家：1000+"
         }
       },
@@ -450,7 +457,7 @@ const languages: Record<LanguageKey, LanguageContent> = {
       },
       freelance: {
         title: "フリーランス",
-        description: "フリーランスプロジェクトを受託、専門的な技術ソリューションを提供"
+        description: "フリーランスプロジェクトを受、専門的な技術ソリューションを提供"
       },
       hardwareBackground: {
         title: "ハードウェア背景",
@@ -868,10 +875,15 @@ const skills = [
   }
 ]
 
-// 修改动态导入
+// 修改 TravelMap 的动态导入
 const TravelMap = dynamic<{
   visitedCountries: Country[];
   plannedCountries: Country[];
+  lang: 'en' | 'zh' | 'ja';
+  translations: {
+    visitedPlaces: string;
+    plannedPlaces: string;
+  };
 }>(() => import('@/components/TravelMap'), {
   ssr: false,
   loading: () => (
