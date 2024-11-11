@@ -36,10 +36,18 @@ interface Country {
 }
 
 interface Project {
-  title: string;
+  title: {
+    en: string;
+    zh: string;
+    ja: string;
+  };
   type: string;
   period?: string;
-  description: string;
+  description: {
+    en: string;
+    zh: string;
+    ja: string;
+  };
   details: string[];
   technologies: string[];
   link?: string;
@@ -324,7 +332,7 @@ const languages: Record<LanguageKey, LanguageContent> = {
     },
     aboutMe: {
       title: "关于我",
-      content: "作为一名全栈开发工程师，我拥有从IC设计到���件开发的独特经历。8年以上企业级应用开发经验，专注于Java后端服务、现代前端框架和云解决方案。擅长解决复杂技术难题，在开发高性能、可扩展系统方面有着丰富经验。目前可接受远程工作机会和由职业项目，我的硬件到云架构的深入理解让我能够提供全面的技术解决方案。期待与您共同创造精彩项目！",
+      content: "作为一名全栈开发工程师，我拥有从IC设计到件开发的独特经历。8年以上企业级应用开发经验，专注于Java后端服务、现代前端框架和云解决方案。擅长解决复杂技术难题，在开发高性能、可扩展系统方面有着丰富经验。目前可接受远程工作机会和由职业项目，我的硬件到云架构的深入理解让我能够提供全面的技术解决方案。期待与您共同创造精彩项目！",
       remoteWork: {
         title: "远程协作",
         description: "擅长跨时区远程协作，可接受全球项目，提供专业技术支持"
@@ -401,7 +409,7 @@ const languages: Record<LanguageKey, LanguageContent> = {
     about: "IC設計からソフトウェア開発まで、独自の経験を持つフルスタック開発者です。8年以上のエンタープライズアプリケーション開発経験を活かし、Javaバックエンド、モダンなフロントエンドフレームワーク、クラウドソリューションを専門としています。複雑な技術的課の解に長け、高性能でスケーラブルなシステム開発の実績があります。現在、リモートワークやフリーランスプロジェクトを募集中。ハードウェアからクラウドアーキテクチャまでの深い理解を活かし、革新的なソリューションを提供します。",
     skills: "スキル",
     experience: "職歴",
-    hobbiesTitle: "趣味", // 替���原来的 hobbies
+    hobbiesTitle: "趣味", // 替原来的 hobbies
     projects: "プロジェト",
     travelMap: "私の行マップ",
     contact: "お問い合わせ",
@@ -471,7 +479,7 @@ const languages: Record<LanguageKey, LanguageContent> = {
         achievements: {
           lol: {
             title: "リーグ・オブ・レジェンド",
-            description: "ベテランプレイヤーとして、サーバー全体でトップ1000位に到達、複数のヒーローをマスター、チーム連携と戦略立案が得意",
+            description: "ベテランプレイヤーとして、サーバー全体でトップ1000位に到達、複数の��ーローをマスター、チーム連携と戦略立案が得意",
             stats: {
               rank: "サーバー全体トップ1000",
               winRate: "65%以上",
@@ -658,29 +666,54 @@ const gamingAchievements: GameAchievement[] = [
   }
 ];
 
+// 更新 projects 数据
 const projects = [
   {
-    title: "Travel Blog",
-    description: "A personal blog documenting my travel adventures. Built with Next.js, MDX, and Tailwind CSS, this responsive website showcases my journeys with stunning photography and engaging stories.",
+    title: {
+      en: "Travel Blog",
+      zh: "旅行博客",
+      ja: "トラベルブログ"
+    },
+    description: {
+      en: "A personal blog documenting my travel adventures. Built with Next.js, MDX, and Tailwind CSS, this responsive website showcases my journeys with stunning photography and engaging stories.",
+      zh: "记录我的旅行冒险的个人博客。使用 Next.js、MDX 和 Tailwind CSS 构建，这个响应式网站展示了我的旅程，配有精美的照片和引人入胜的故事。",
+      ja: "私の旅の冒険を記録する個人ブログ。Next.js、MDX、Tailwind CSSで構築され、このレスポンシブなウェブサイトは、美しい写真と魅力的なストーリーで私の旅を紹介しています。"
+    },
     imageSrc: "https://images.unsplash.com/photo-1501785888041-af3ef285b470?fit=crop&w=1000&h=600",
     technologies: ["Next.js", "MDX", "Tailwind CSS"],
     link: "https://example.com/travel-blog"
   },
   {
-    title: "Game Companion App",
-    description: "A mobile app to track gaming achievements and stats. Developed using React Native and Firebase, this app helps gamers manage their progress across multiple games and connect with fellow players.",
+    title: {
+      en: "Game Companion App",
+      zh: "游戏伴侣应用",
+      ja: "ゲームコンパニオンアプリ"
+    },
+    description: {
+      en: "A mobile app to track gaming achievements and stats. Developed using React Native and Firebase, this app helps gamers manage their progress across multiple games and connect with fellow players.",
+      zh: "一个用于追踪游戏成就和统计数据的移动应用。使用 React Native 和 Firebase 开发，这个应用帮助游戏玩家管理多个游戏的进度并与其他玩家联系。",
+      ja: "ゲームの実績とスタッツを追跡するモバイルアプリ。React NativeとFirebaseを使用して開発され、このアプリはゲーマーが複数のゲームの進捗を管理し、他のプレイヤーとつながることを支援します。"
+    },
     imageSrc: "https://images.unsplash.com/photo-1592155931584-901ac15763e3?fit=crop&w=1000&h=600",
     technologies: ["React Native", "Firebase", "Expo"],
     link: "https://example.com/game-companion"
   },
   {
-    title: "Code Playground",
-    description: "An online IDE for collaborative coding. This Vue.js-based platform uses WebSockets and Monaco Editor to provide real-time code sharing and execution, perfect for pair programming and teaching.",
+    title: {
+      en: "Code Playground",
+      zh: "代码游乐场",
+      ja: "コードプレイグラウンド"
+    },
+    description: {
+      en: "An online IDE for collaborative coding. This Vue.js-based platform uses WebSockets and Monaco Editor to provide real-time code sharing and execution, perfect for pair programming and teaching.",
+      zh: "一个用于协作编码的在线 IDE。这个基于 Vue.js 的平台使用 WebSocket 和 Monaco Editor 提供实时代码共享和执行功能，非常适合结对编程和教学。",
+      ja: "協力コーディングのためのオンラインIDE。Vue.jsベースのこのプラットフォームは、WebSocketとMonaco Editorを使用してリアルタイムのコード共有と実行を提供し、ペアプログラミングや教育に最適です。"
+    },
     imageSrc: "https://images.unsplash.com/photo-1555099962-4199c345e5dd?fit=crop&w=1000&h=600",
     technologies: ["Vue.js", "WebSockets", "Monaco Editor"],
     link: "https://example.com/code-playground"
-  },
-]
+  }
+];
 
 const skills = [
   // 编程语言
@@ -1352,7 +1385,7 @@ export function PortfolioPage() {
                 <div className="flex flex-col md:flex-row gap-6">
                   <Image
                     src={projects[currentProject].imageSrc}
-                    alt={projects[currentProject].title}
+                    alt={projects[currentProject].title.en}
                     width={800}
                     height={300}
                     className="w-full md:w-1/2 h-[300px] object-cover rounded-lg"
@@ -1658,7 +1691,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
       {/* 项目标题和类型 */}
       <div className="flex flex-wrap items-center gap-3 mb-4">
         <h4 className="text-xl font-semibold text-primary group-hover:text-primary/80">
-          {project.title}
+          {project.title.en}
         </h4>
         <Badge variant="secondary" className="font-medium">
           {project.type}
@@ -1672,7 +1705,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
 
       {/* 项目描述 */}
       <p className="text-base text-muted-foreground mb-6 leading-relaxed">
-        {project.description}
+        {project.description.en}
       </p>
 
       {/* 项目详情 */}
