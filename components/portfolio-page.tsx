@@ -167,7 +167,7 @@ type LanguageContent = {
   };
   viewProject: string;
   projectDetails: {
-    expand: string;    // 查看项目详情
+    expand: string;    // 查看项目详
     collapse: string;  // 收起项目详情
     projects: string;  // 项目
   };
@@ -446,7 +446,7 @@ const languages: Record<LanguageKey, LanguageContent> = {
     },
     aboutMe: {
       title: "自己紹介",
-      content: "IC設計からソフトウェア開発まで、独自の経験を持つフルスタック開発者です。8年以上のエンタープライズアプリケーション開発経験を活かし、Javaバックエンド、モダンなフロントエンドフレームワーク、クラウドソリューションを専門としています。複雑な技術的課題の解決に長け、高性能でスケーラブルなシステム開発の実績があります。現在、リモートワークやフリーランスプロジェクトを募集中。ハードウェアからクラウドアーキテクチャまでの深い理解を活かし、革新的なソリューションを提供します。",
+      content: "IC設計からソフトウェア開発まで、独自の経験を持つフルスタック開発者です。8年以上のエンタープライズアプリケーション開発経験を活かし、Javaバックエンド、モダンなフロントエンドフレームワーク、クラウドソリューションを専門としています。複雑な技術的課題の解決に長け、高性能でスケーラブルなシステム開発の実績があります。現在、リモートワークやフリーランスプロジェクトを募中。ハードウェアからクラウドアーキテクチャまでの深い理解を活かし、革新的なソリューションを提供します。",
       remoteWork: {
         title: "リモートコラボレーション",
         description: "タイムゾーンを越えたリモート協力が得意で、グローバルプロジェクトに対応可能、専門的な技術サポートを提供"
@@ -505,7 +505,7 @@ const languages: Record<LanguageKey, LanguageContent> = {
       },
       travel: {
         title: "旅行マップ",
-        description: "アジアの様々な地域を探検する機会に恵まれました東京の賑やな街並みから、プーケットの静かなビー、クアラ��ンプールの多様な文化、そしてフィリピンの美しい島々まで。それぞれの目的地で独自の体験と忘れられない思い出を得ることができました。",
+        description: "アジアの様々な地域を探検する機会に恵まれました東京の賑やな街並みから、プーケットの静かなビー、クアランプールの様な文化、そしてフィリピンの美しい島々まで。それぞれの目的地で独自の体験と忘れられない思い出を得ることができました。",
         visitedPlaces: "訪問した場所",
         plannedPlaces: "訪問予定の場所"
       }
@@ -527,7 +527,7 @@ const visitedCountries = [
       zh: "日本",
       ja: "日本"
     },
-    coordinates: [139.6503, 35.6762],
+    coordinates: [139.6503, 35.6762] as [number, number],
     type: "visited",
     highlights: {
       en: ["Tokyo", "Osaka", "Kyoto", "Mt. Fuji"],
@@ -542,7 +542,7 @@ const visitedCountries = [
       zh: "泰国",
       ja: "タイ"
     },
-    coordinates: [100.5018, 13.7563],
+    coordinates: [100.5018, 13.7563] as [number, number],
     type: "visited",
     highlights: {
       en: ["Bangkok", "Phuket", "Chiang Mai", "Pattaya"],
@@ -557,7 +557,7 @@ const visitedCountries = [
       zh: "菲律宾",
       ja: "フィリピン"
     },
-    coordinates: [120.9842, 14.5995],
+    coordinates: [120.9842, 14.5995] as [number, number],
     type: "visited",
     highlights: {
       en: ["Manila", "Cebu", "Boracay", "Palawan"],
@@ -572,7 +572,7 @@ const visitedCountries = [
       zh: "马来西亚",
       ja: "マレーシア"
     },
-    coordinates: [101.6869, 3.1390],
+    coordinates: [101.6869, 3.1390] as [number, number],
     type: "visited",
     highlights: {
       en: ["Kuala Lumpur", "Penang", "Malacca", "Genting Highlands"],
@@ -591,7 +591,7 @@ const plannedCountries = [
       zh: "美国",
       ja: "アメリカ"
     },
-    coordinates: [-95.7129, 37.0902],
+    coordinates: [-95.7129, 37.0902] as [number, number],
     type: "planned",
     highlights: {
       en: ["New York", "Los Angeles", "San Francisco", "Yellowstone"],
@@ -606,7 +606,7 @@ const plannedCountries = [
       zh: "埃及",
       ja: "エジプト"
     },
-    coordinates: [30.8025, 26.8206],
+    coordinates: [30.8025, 26.8206] as [number, number],
     type: "planned",
     highlights: {
       en: ["Pyramids", "Luxor", "Red Sea", "Nile River"],
@@ -621,7 +621,7 @@ const plannedCountries = [
       zh: "冰岛",
       ja: "アイスランド"
     },
-    coordinates: [-19.0208, 64.9631],
+    coordinates: [-19.0208, 64.9631] as [number, number],
     type: "planned",
     highlights: {
       en: ["Reykjavik", "Blue Lagoon", "Golden Circle", "Northern Lights"],
@@ -1180,7 +1180,7 @@ export function PortfolioPage() {
                   </p>
                 </motion.div>
 
-                {/* 自由职业卡片 */}
+                {/* 自由职业卡 */}
                 <motion.div
                   className="bg-secondary/10 p-6 rounded-lg hover:bg-secondary/20 transition-all duration-300 backdrop-blur-sm border border-secondary/10"
                   whileHover={{ scale: 1.02 }}
@@ -1699,12 +1699,12 @@ function ProjectCard({ project, index, lang }: { project: Project | WorkExperien
     >
       <div className="flex flex-wrap items-center gap-3 mb-4">
         <h4 className="text-xl font-semibold text-primary group-hover:text-primary/80">
-          {'title' in project && typeof project.title === 'string' ? project.title : project.title[lang]}
+          {typeof project.title === 'string' ? project.title : project.title[lang]}
         </h4>
         <Badge variant="secondary" className="font-medium">
           {project.type}
         </Badge>
-        {project.period && (
+        {'period' in project && project.period && (
           <span className="text-sm text-muted-foreground">
             {project.period}
           </span>
@@ -1770,6 +1770,7 @@ interface WorkExperienceProject {
     ja: string;
   };
   type: string;
+  period?: string; // 添加可选的 period 属性
   description: {
     en: string;
     zh: string;
