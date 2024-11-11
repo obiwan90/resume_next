@@ -479,7 +479,7 @@ const languages: Record<LanguageKey, LanguageContent> = {
         achievements: {
           lol: {
             title: "リーグ・オブ・レジェンド",
-            description: "ベテランプレイヤーとして、サーバー全体でトップ1000位に到達、複数の��ーローをマスター、チーム連携と戦略立案が得意",
+            description: "ベテランプレイヤーとして、サーバー全体でトップ1000位に到達、複数のーローをマスター、チーム連携と戦略立案が得意",
             stats: {
               rank: "サーバー全体トップ1000",
               winRate: "65%以上",
@@ -505,7 +505,7 @@ const languages: Record<LanguageKey, LanguageContent> = {
       },
       travel: {
         title: "旅行マップ",
-        description: "アジアの様々な地域を探検する機会に恵まれました東京の賑やな街並みから、プーケットの静かなビーチ、クアラルンプールの多様な文化、そしてフィリピンの美しい島々まで。それぞれの目的地で独自の体験と忘れられない思い出を得ることができました。",
+        description: "アジアの様々な地域を探検する機会に恵まれました東京の賑やな街並みから、プーケットの静かなビー��、クアラルンプールの多様な文化、そしてフィリピンの美しい島々まで。それぞれの目的地で独自の体験と忘れられない思い出を得ることができました。",
         visitedPlaces: "訪問した場所",
         plannedPlaces: "訪問予定の場所"
       }
@@ -1271,6 +1271,7 @@ export function PortfolioPage() {
                 collapse: t.projectDetails.collapse,
                 projects: t.projectDetails.projects
               }}
+              lang={lang}
             />
 
             {/* 数字设计工作室 */}
@@ -1286,6 +1287,7 @@ export function PortfolioPage() {
                 collapse: t.projectDetails.collapse,
                 projects: t.projectDetails.projects
               }}
+              lang={lang}
             />
 
             {/* 华为 */}
@@ -1301,6 +1303,7 @@ export function PortfolioPage() {
                 collapse: t.projectDetails.collapse,
                 projects: t.projectDetails.projects
               }}
+              lang={lang}
             />
 
             {/* 游戏公司 */}
@@ -1316,6 +1319,7 @@ export function PortfolioPage() {
                 collapse: t.projectDetails.collapse,
                 projects: t.projectDetails.projects
               }}
+              lang={lang}
             />
 
             {/* 微光集电 */}
@@ -1331,6 +1335,7 @@ export function PortfolioPage() {
                 collapse: t.projectDetails.collapse,
                 projects: t.projectDetails.projects
               }}
+              lang={lang}
             />
 
             {/* 大学教育 */}
@@ -1345,6 +1350,7 @@ export function PortfolioPage() {
                 collapse: t.projectDetails.collapse,
                 projects: t.projectDetails.projects
               }}
+              lang={lang}
             />
 
             {/* 半导体公司 */}
@@ -1360,6 +1366,7 @@ export function PortfolioPage() {
                 collapse: t.projectDetails.collapse,
                 projects: t.projectDetails.projects
               }}
+              lang={lang}
             />
           </div>
         </motion.section>
@@ -1667,7 +1674,7 @@ function TimelineItem({
                   className="space-y-6 pl-4 border-l-2 border-primary/20"
                 >
                   {projects.map((project, index) => (
-                    <ProjectCard key={index} project={project} index={index} />
+                    <ProjectCard key={index} project={project} index={index} lang={lang} />
                   ))}
                 </motion.div>
               )}
@@ -1680,7 +1687,7 @@ function TimelineItem({
 }
 
 // 新增 ProjectCard 组件来展示项目详情
-function ProjectCard({ project, index }: { project: Project; index: number }) {
+function ProjectCard({ project, index, lang }: { project: Project | WorkExperienceProject; index: number; lang: LanguageKey }) {
   return (
     <motion.div
       initial={{ opacity: 0, x: -20 }}
@@ -1688,10 +1695,9 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
       transition={{ delay: index * 0.1 }}
       className="relative bg-secondary/10 p-6 rounded-lg hover:bg-secondary/20 transition-all duration-300 group"
     >
-      {/* 项目标题和类型 */}
       <div className="flex flex-wrap items-center gap-3 mb-4">
         <h4 className="text-xl font-semibold text-primary group-hover:text-primary/80">
-          {project.title.en}
+          {'title' in project && typeof project.title === 'string' ? project.title : project.title[lang]}
         </h4>
         <Badge variant="secondary" className="font-medium">
           {project.type}
@@ -1703,9 +1709,8 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
         )}
       </div>
 
-      {/* 项目描述 */}
       <p className="text-base text-muted-foreground mb-6 leading-relaxed">
-        {project.description.en}
+        {'description' in project && typeof project.description === 'string' ? project.description : project.description[lang]}
       </p>
 
       {/* 项目详情 */}
