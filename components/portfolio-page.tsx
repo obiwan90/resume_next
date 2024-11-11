@@ -41,15 +41,27 @@ interface Project {
     zh: string;
     ja: string;
   };
-  type: string;
+  type: string | {
+    en: string;
+    zh: string;
+    ja: string;
+  };
   period?: string;
   description: {
     en: string;
     zh: string;
     ja: string;
   };
-  details: string[];
-  technologies: string[];
+  details: {
+    en: string[];
+    zh: string[];
+    ja: string[];
+  };  // 修改为多语言数组
+  technologies: string[] | {
+    en: string[];
+    zh: string[];
+    ja: string[];
+  };
   link?: string;
   imageSrc?: string;
 }
@@ -170,6 +182,7 @@ type LanguageContent = {
     expand: string;    // 查看项目详
     collapse: string;  // 收起项目详情
     projects: string;  // 项目
+    technicalStack: string;  // 技术栈
   };
 };
 
@@ -286,7 +299,8 @@ const languages: Record<LanguageKey, LanguageContent> = {
     projectDetails: {
       expand: "View Project Details",
       collapse: "Hide Project Details",
-      projects: "projects"
+      projects: "projects",
+      technicalStack: "Technical Stack"  // 添加这个
     }
   },
   zh: {
@@ -355,7 +369,7 @@ const languages: Record<LanguageKey, LanguageContent> = {
       },
       hardwareBackground: {
         title: "硬件背景",
-        description: "从IC设计到软件开发，深入理解底层技术"
+        description: "从IC设计到软件开发，入理解底层技术"
       }
     },
     hobbies: {
@@ -374,12 +388,12 @@ const languages: Record<LanguageKey, LanguageContent> = {
             }
           },
           wow: {
-            title: "魔兽世界",
+            title: "魔兽世",
             description: "完成当前版团队副本挑战难度"
           },
           steam: {
             title: "Steam收藏",
-            description: "拥有100+游戏库藏，完成多个游戏白金成就"
+            description: "拥有100+游戏库��，完成个游戏白金���就"
           }
         },
         stats: {
@@ -400,13 +414,14 @@ const languages: Record<LanguageKey, LanguageContent> = {
     projectDetails: {
       expand: "查看项目详情",
       collapse: "收起项目详情",
-      projects: "项目"
+      projects: "项目",
+      technicalStack: "技术栈"  // 添加这个
     }
   },
   ja: {
     title: "Andyのプロフィール",
     subtitle: "ソフトウェア開発者、クリエイター、旅行者、ゲーマー",
-    about: "IC設計からソフトウェア開発まで、独自の経験を持つフルスタック開発者です。8年以上のエンタープライズアプリケーション開発経験を活かし、Javaバックエンド、モダンなフロントエンドフレームワーク、クラウドソリューションを専門としています。複雑な技術的課の解に長け、高性能でスケーラブルなシステム開発の実績があります。現在、リモートワークやフリーランスプロジェクトを募集中。ハードウェアからクラウドアーキテクチャまでの深い理解を活かし、革新的なソリューションを提供します。",
+    about: "IC設計からソフトウェア開発まで、独自の経験を持つフルスタック開発者です。8年以上のエンタープライズアプリケーション開発経験を活かし、Javaバックエンド、モダンなフロントエンドフレームワーク、クラウドソリューションを専門としています。複雑な技術課の解に長け、高性能でスケーラブルなシステム開発の実績があります。現在、リモートワークやフリーランスプロジェクトを募集中。ハードウェアからクラウドアーキテクチャまでの深い理解を活かし、革新的なソリューションを提供します。",
     skills: "スキル",
     experience: "職歴",
     hobbiesTitle: "趣味", // 替原来的 hobbies
@@ -492,7 +507,7 @@ const languages: Record<LanguageKey, LanguageContent> = {
             description: "現行バージョンのチームレイドチャレンジ難易度をクリア"
           },
           steam: {
-            title: "Steamコレクション",
+            title: "Steamレクション",
             description: "100以上のゲームライブラリを所有、複数のゲームでプラチナ実績を達成"
           }
         },
@@ -505,7 +520,7 @@ const languages: Record<LanguageKey, LanguageContent> = {
       },
       travel: {
         title: "旅行マップ",
-        description: "アジアの様々な地域を探検する機会に恵まれました東京の賑やな街並みから、プーケットの静かなビー、クアランプールの様な文化、そしてフィリピンの美しい島々まで。それぞれの目的地で独自の体験と忘れられない思い出を得ることができました。",
+        description: "アジアの様々な地域を探検する機会に恵まれました東��の賑やな街並みから、プーケットの静かなビー、クアランプールの様な文化、そしてフィリピンの美しい島々まで。それぞれの目的地で独自の体験と忘れられない思い出を得ることができました。",
         visitedPlaces: "訪問した場所",
         plannedPlaces: "訪問予定の場所"
       }
@@ -514,7 +529,8 @@ const languages: Record<LanguageKey, LanguageContent> = {
     projectDetails: {
       expand: "プロジェクト詳細を表示",
       collapse: "プロジェクト詳細を隠す",
-      projects: "プロジェクト"
+      projects: "プロジェクト",
+      technicalStack: "技術スタック"  // 添加这个
     }
   },
 }
@@ -547,7 +563,7 @@ const visitedCountries = [
     highlights: {
       en: ["Bangkok", "Phuket", "Chiang Mai", "Pattaya"],
       zh: ["曼谷", "普吉岛", "清迈", "芭提雅"],
-      ja: ["バンコク", "プーケット", "チェンマイ", "パタヤ"]
+      ja: ["バ���コク", "プーケット", "チェンマイ", "パタヤ"]
     },
     color: "#4BFF4B"
   },
@@ -707,7 +723,7 @@ const projects = [
     description: {
       en: "An online IDE for collaborative coding. This Vue.js-based platform uses WebSockets and Monaco Editor to provide real-time code sharing and execution, perfect for pair programming and teaching.",
       zh: "一个用于协作编码的在线 IDE。这个基于 Vue.js 的平台使用 WebSocket 和 Monaco Editor 提供实时代码共享和执行功能，非常适合结对编程和教学。",
-      ja: "協力コーディングのためのオンラインIDE。Vue.jsベースのこのプラットフォームは、WebSocketとMonaco Editorを使用してリアルタイムのコード共有と実行を提供し、ペアプログラミングや教育に最適です。"
+      ja: "協力コーディングのためのオンラインIDE。Vue.jsベースのこのプラットフォームは、WebSocketとMonaco Editorを使用してアルタイムのコード共有と実行を提供し、ペアプログラミングや教育に最適です。"
     },
     imageSrc: "https://images.unsplash.com/photo-1555099962-4199c345e5dd?fit=crop&w=1000&h=600",
     technologies: ["Vue.js", "WebSockets", "Monaco Editor"],
@@ -1269,7 +1285,8 @@ export function PortfolioPage() {
               translations={{
                 expand: t.projectDetails.expand,
                 collapse: t.projectDetails.collapse,
-                projects: t.projectDetails.projects
+                projects: t.projectDetails.projects,
+                technicalStack: t.projectDetails.technicalStack  // 添加这个
               }}
               lang={lang}
             />
@@ -1285,7 +1302,8 @@ export function PortfolioPage() {
               translations={{
                 expand: t.projectDetails.expand,
                 collapse: t.projectDetails.collapse,
-                projects: t.projectDetails.projects
+                projects: t.projectDetails.projects,
+                technicalStack: t.projectDetails.technicalStack  // 添加这行
               }}
               lang={lang}
             />
@@ -1301,7 +1319,8 @@ export function PortfolioPage() {
               translations={{
                 expand: t.projectDetails.expand,
                 collapse: t.projectDetails.collapse,
-                projects: t.projectDetails.projects
+                projects: t.projectDetails.projects,
+                technicalStack: t.projectDetails.technicalStack  // 添加这个
               }}
               lang={lang}
             />
@@ -1317,7 +1336,8 @@ export function PortfolioPage() {
               translations={{
                 expand: t.projectDetails.expand,
                 collapse: t.projectDetails.collapse,
-                projects: t.projectDetails.projects
+                projects: t.projectDetails.projects,
+                technicalStack: t.projectDetails.technicalStack  // 添加这个
               }}
               lang={lang}
             />
@@ -1333,7 +1353,8 @@ export function PortfolioPage() {
               translations={{
                 expand: t.projectDetails.expand,
                 collapse: t.projectDetails.collapse,
-                projects: t.projectDetails.projects
+                projects: t.projectDetails.projects,
+                technicalStack: t.projectDetails.technicalStack  // 添加这个
               }}
               lang={lang}
             />
@@ -1348,7 +1369,8 @@ export function PortfolioPage() {
               translations={{
                 expand: t.projectDetails.expand,
                 collapse: t.projectDetails.collapse,
-                projects: t.projectDetails.projects
+                projects: t.projectDetails.projects,
+                technicalStack: t.projectDetails.technicalStack  // 添加这个
               }}
               lang={lang}
             />
@@ -1364,7 +1386,8 @@ export function PortfolioPage() {
               translations={{
                 expand: t.projectDetails.expand,
                 collapse: t.projectDetails.collapse,
-                projects: t.projectDetails.projects
+                projects: t.projectDetails.projects,
+                technicalStack: t.projectDetails.technicalStack  // 添加这个
               }}
               lang={lang}
             />
@@ -1570,20 +1593,21 @@ export function PortfolioPage() {
 // 修改 TimelineItem 的 props 类型
 interface TimelineItemProps {
   icon: React.ElementType;
-  title: string;
+  title: string | { en: string; zh: string; ja: string; };  // 修改这里
   period: string;
   location: string;
-  description?: string;
+  description?: string | { en: string; zh: string; ja: string; };  // 修改这里
   projects?: Project[];
   translations: {
     expand: string;
     collapse: string;
     projects: string;
+    technicalStack: string;  // 添加这个
   };
-  lang: LanguageKey;  // 添加 lang 属性
+  lang: LanguageKey;
 }
 
-// 修改 TimelineItem 组件定义
+// 修改 TimelineItem 件定义
 function TimelineItem({
   icon: Icon,
   title,
@@ -1592,9 +1616,13 @@ function TimelineItem({
   description,
   projects,
   translations,
-  lang  // 添加 lang 参数
+  lang
 }: TimelineItemProps) {
   const [isExpanded, setIsExpanded] = useState(false);
+
+  // 处理多语言标题和描述
+  const displayTitle = typeof title === 'object' ? title[lang] : title;
+  const displayDescription = typeof description === 'object' ? description[lang] : description;
 
   return (
     <motion.div
@@ -1609,9 +1637,9 @@ function TimelineItem({
       </div>
 
       <div className="flex-1">
-        {/* 标部分 */}
+        {/* 标题部分 */}
         <div className="flex flex-wrap items-center gap-2 mb-1">
-          <h3 className="font-semibold text-xl">{title}</h3>
+          <h3 className="font-semibold text-xl">{displayTitle}</h3>
           <Badge variant="outline" className="text-xs">
             {period}
           </Badge>
@@ -1623,10 +1651,10 @@ function TimelineItem({
           {location}
         </div>
 
-        {/* 描述息 */}
+        {/* 描述信息 */}
         {description && (
           <p className="text-sm text-muted-foreground mb-4 leading-relaxed">
-            {description}
+            {displayDescription}
           </p>
         )}
 
@@ -1676,7 +1704,13 @@ function TimelineItem({
                   className="space-y-6 pl-4 border-l-2 border-primary/20"
                 >
                   {projects.map((project, index) => (
-                    <ProjectCard key={index} project={project} index={index} lang={lang} />
+                    <ProjectCard
+                      key={index}
+                      project={project}
+                      index={index}
+                      lang={lang}
+                      translations={translations}  // 直接传递 translations
+                    />
                   ))}
                 </motion.div>
               )}
@@ -1689,7 +1723,24 @@ function TimelineItem({
 }
 
 // 新增 ProjectCard 组件来展示项目详情
-function ProjectCard({ project, index, lang }: { project: Project | WorkExperienceProject; index: number; lang: LanguageKey }) {
+function ProjectCard({ project, index, lang, translations }: {
+  project: Project | WorkExperienceProject;
+  index: number;
+  lang: LanguageKey;
+  translations: {
+    technicalStack: string;
+  };
+}) {
+  // 处理 details 数据
+  const details = Array.isArray(project.details)
+    ? project.details  // 如果是数组，直接使用
+    : project.details[lang];  // 如果是多语言对象，使用当前语言的数组
+
+  // 处理 technologies 数据
+  const technologies = Array.isArray(project.technologies)
+    ? project.technologies
+    : project.technologies[lang];
+
   return (
     <motion.div
       initial={{ opacity: 0, x: -20 }}
@@ -1702,7 +1753,7 @@ function ProjectCard({ project, index, lang }: { project: Project | WorkExperien
           {typeof project.title === 'string' ? project.title : project.title[lang]}
         </h4>
         <Badge variant="secondary" className="font-medium">
-          {project.type}
+          {typeof project.type === 'object' && 'en' in project.type ? project.type[lang] : project.type}
         </Badge>
         {'period' in project && project.period && (
           <span className="text-sm text-muted-foreground">
@@ -1712,12 +1763,12 @@ function ProjectCard({ project, index, lang }: { project: Project | WorkExperien
       </div>
 
       <p className="text-base text-muted-foreground mb-6 leading-relaxed">
-        {'description' in project && typeof project.description === 'string' ? project.description : project.description[lang]}
+        {typeof project.description === 'object' ? project.description[lang] : project.description}
       </p>
 
       {/* 项目详情 */}
       <div className="space-y-4 mb-6">
-        {project.details.map((detail, i) => {
+        {details.map((detail, i) => {
           const isTitle = detail.endsWith('：') || detail.endsWith(':');
           const isListItem = detail.trim().startsWith('•') || detail.trim().startsWith('-');
 
@@ -1741,13 +1792,13 @@ function ProjectCard({ project, index, lang }: { project: Project | WorkExperien
         })}
       </div>
 
-      {/* 技术 */}
+      {/* 技术栈 */}
       <div className="border-t border-primary/10 pt-4">
         <h5 className="text-sm font-medium mb-3 text-muted-foreground">
-          技术栈
+          {translations.technicalStack}
         </h5>
         <div className="flex flex-wrap gap-2">
-          {project.technologies.map((tech, i) => (
+          {technologies.map((tech, i) => (
             <Badge
               key={i}
               variant="outline"
@@ -1769,13 +1820,25 @@ interface WorkExperienceProject {
     zh: string;
     ja: string;
   };
-  type: string;
-  period?: string; // 添加可选的 period 属性
+  type: string | {
+    en: string;
+    zh: string;
+    ja: string;
+  };
+  period?: string;
   description: {
     en: string;
     zh: string;
     ja: string;
   };
-  details: string[];
-  technologies: string[];
+  details: {
+    en: string[];
+    zh: string[];
+    ja: string[];
+  };  // 修改为多语言数组
+  technologies: string[] | {
+    en: string[];
+    zh: string[];
+    ja: string[];
+  };
 }

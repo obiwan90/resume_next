@@ -49,6 +49,7 @@ const TravelMap = ({ visitedCountries, plannedCountries, lang, translations }: T
     return (
         <div className="relative h-full">
             <MapContainer
+                key={lang}
                 center={[20, 100]}
                 zoom={3}
                 style={{ height: '100%', width: '100%' }}
