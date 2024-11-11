@@ -5,20 +5,48 @@ import 'leaflet-defaulticon-compatibility';
 import 'leaflet-defaulticon-compatibility/dist/leaflet-defaulticon-compatibility.css';
 
 interface Country {
-    name: string;
+    name: {
+        en: string;
+        zh: string;
+        ja: string;
+    };
     nameZh: string;
     coordinates: [number, number];
     type?: string;
-    highlights: string[];
+    highlights: {
+        en: string[];
+        zh: string[];
+        ja: string[];
+    };
     color: string;
 }
 
 interface TravelMapProps {
     visitedCountries: Country[];
     plannedCountries: Country[];
+    lang: 'en' | 'zh' | 'ja';
+    translations: {
+        visitedPlaces: string;
+        plannedPlaces: string;
+    };
 }
 
-const TravelMap = ({ visitedCountries, plannedCountries }: TravelMapProps) => {
+const TravelMap = ({ visitedCountries, plannedCountries, lang, translations }: TravelMapProps) => {
+    const placeLabels = {
+        en: {
+            visited: "Places visited:",
+            planned: "Places to visit:"
+        },
+        zh: {
+            visited: "去过的地方：",
+            planned: "想去的地方："
+        },
+        ja: {
+            visited: "訪問した場所：",
+            planned: "訪問予定の場所："
+        }
+    };
+
     return (
         <div className="relative h-full">
             <MapContainer
@@ -35,18 +63,18 @@ const TravelMap = ({ visitedCountries, plannedCountries }: TravelMapProps) => {
                 {/* 已访问的国家 */}
                 {visitedCountries.map((country) => (
                     <Marker
-                        key={country.name}
+                        key={country.name[lang]}
                         position={[country.coordinates[1], country.coordinates[0]]}
                     >
                         <Popup>
                             <div className="p-3 min-w-[200px]">
                                 <h3 className="font-bold text-lg mb-2 text-primary flex items-center gap-2">
-                                    <span>✈️</span> {country.nameZh}
+                                    <span>✈️</span> {country.name[lang]}
                                 </h3>
                                 <div className="space-y-2">
-                                    <p className="text-sm font-medium">去过的地方：</p>
+                                    <p className="text-sm font-medium">{placeLabels[lang].visited}</p>
                                     <ul className="list-disc list-inside space-y-1">
-                                        {country.highlights.map((highlight, index) => (
+                                        {country.highlights[lang].map((highlight, index) => (
                                             <li key={index} className="text-sm text-muted-foreground">
                                                 {highlight}
                                             </li>
@@ -61,7 +89,7 @@ const TravelMap = ({ visitedCountries, plannedCountries }: TravelMapProps) => {
                 {/* 计划去的国家 */}
                 {plannedCountries.map((country) => (
                     <Marker
-                        key={country.name}
+                        key={country.name[lang]}
                         position={[country.coordinates[1], country.coordinates[0]]}
                         icon={new Icon({
                             iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-violet.png',
@@ -75,12 +103,12 @@ const TravelMap = ({ visitedCountries, plannedCountries }: TravelMapProps) => {
                         <Popup>
                             <div className="p-3 min-w-[200px]">
                                 <h3 className="font-bold text-lg mb-2 text-secondary flex items-center gap-2">
-                                    <span>🎯</span> {country.nameZh}
+                                    <span>🎯</span> {country.name[lang]}
                                 </h3>
                                 <div className="space-y-2">
-                                    <p className="text-sm font-medium">想去的地方：</p>
+                                    <p className="text-sm font-medium">{placeLabels[lang].planned}</p>
                                     <ul className="list-disc list-inside space-y-1">
-                                        {country.highlights.map((highlight, index) => (
+                                        {country.highlights[lang].map((highlight, index) => (
                                             <li key={index} className="text-sm text-muted-foreground">
                                                 {highlight}
                                             </li>
@@ -98,24 +126,24 @@ const TravelMap = ({ visitedCountries, plannedCountries }: TravelMapProps) => {
                 <div className="space-y-4">
                     <div>
                         <h4 className="text-sm font-semibold mb-2 flex items-center gap-2">
-                            <span>✈️</span> 已去过的地方
+                            <span>✈️</span> {translations.visitedPlaces}
                         </h4>
                         <div className="space-y-1">
                             {visitedCountries.map((country) => (
-                                <div key={country.name} className="text-sm text-muted-foreground">
-                                    • {country.nameZh}
+                                <div key={country.name[lang]} className="text-sm text-muted-foreground">
+                                    • {country.name[lang]}
                                 </div>
                             ))}
                         </div>
                     </div>
                     <div>
                         <h4 className="text-sm font-semibold mb-2 flex items-center gap-2">
-                            <span>🎯</span> 计划去的地方
+                            <span>🎯</span> {translations.plannedPlaces}
                         </h4>
                         <div className="space-y-1">
                             {plannedCountries.map((country) => (
-                                <div key={country.name} className="text-sm text-muted-foreground">
-                                    • {country.nameZh}
+                                <div key={country.name[lang]} className="text-sm text-muted-foreground">
+                                    • {country.name[lang]}
                                 </div>
                             ))}
                         </div>

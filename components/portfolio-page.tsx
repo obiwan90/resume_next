@@ -16,6 +16,7 @@ import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion"
 import 'leaflet/dist/leaflet.css'
 import Image from 'next/image'
 import dynamic from 'next/dynamic'
+import { workExperience } from '@/translations/work-experience';
 
 // 添加类型定义
 interface Country {
@@ -48,7 +49,7 @@ type LanguageContent = {
   about: string;
   skills: string;
   experience: string;
-  hobbies: string;
+  hobbiesTitle: string; // 改为 hobbiesTitle
   projects: string;
   travelMap: string;
   contact: string;
@@ -65,7 +66,97 @@ type LanguageContent = {
   approachDesc: string;
   learning: string;
   learningDesc: string;
-}
+  workExperience: {
+    softwareDeveloper: string;
+    fullstack: string;
+    backend: string;
+    qa: string;
+    layoutEngineer: string;
+    analogEngineer: string;
+    university: string;
+    projectBackground: string;
+    technicalStack: string;
+    responsibilities: string;
+    mainAchievements: string;
+    visitedPlaces: string;
+    plannedPlaces: string;
+  };
+  locations: {
+    chengdu: string;
+  };
+  aboutMe: {
+    title: string;
+    content: string;
+    remoteWork: {
+      title: string;
+      description: string;
+    };
+    technicalInnovation: {
+      title: string;
+      description: string;
+    };
+    fullstack: {
+      title: string;
+      description: string;
+    };
+    projectExperience: {
+      title: string;
+      description: string;
+    };
+    freelance: {
+      title: string;
+      description: string;
+    };
+    hardwareBackground: {
+      title: string;
+      description: string;
+    };
+  };
+  hobbies: {
+    gaming: {
+      title: string;
+      description: string;
+      achievements: {
+        lol: {
+          title: string;
+          description: string;
+          stats: {
+            rank: string;
+            winRate: string;
+            matches: string;
+            mainHeroes: string[];
+          }
+        };
+        wow: {
+          title: string;
+          description: string;
+        };
+        steam: {
+          title: string;
+          description: string;
+        };
+      };
+      stats: {
+        title: string;
+        totalHours: string;
+        achievements: string;
+        teammates: string;
+      };
+    };
+    travel: {
+      title: string;
+      description: string;
+      visitedPlaces: string;
+      plannedPlaces: string;
+    };
+  };
+  viewProject: string;
+  projectDetails: {
+    expand: string;    // 查看项目详情
+    collapse: string;  // 收起项目详情
+    projects: string;  // 项目
+  };
+};
 
 // 定义languages对象的类型
 const languages: Record<LanguageKey, LanguageContent> = {
@@ -75,7 +166,7 @@ const languages: Record<LanguageKey, LanguageContent> = {
     about: "I'm a versatile full-stack developer with a unique journey from IC design to software development. With 8+ years of experience in building enterprise applications, I specialize in Java backend services, modern frontend frameworks, and cloud solutions. I excel at solving complex technical challenges and have a proven track record in developing high-performance, scalable systems. Currently available for remote opportunities and freelance projects, I bring a deep understanding of technology from hardware to cloud architecture. Let's create something amazing together!",
     skills: "Skills",
     experience: "Work Experience",
-    hobbies: "Hobbies",
+    hobbiesTitle: "Hobbies", // 替换原来的 hobbies
     projects: "Projects",
     travelMap: "My Travel Map",
     contact: "Contact",
@@ -92,6 +183,96 @@ const languages: Record<LanguageKey, LanguageContent> = {
     approachDesc: "Delivering high-quality solutions through modern tech stack and best practices.",
     learning: "Continuous Growth",
     learningDesc: "Staying at the forefront of technology trends and expanding expertise in AI and cloud solutions.",
+    workExperience: {
+      softwareDeveloper: "Software Developer",
+      fullstack: "Full Stack Development",
+      backend: "Backend Development",
+      qa: "Quality Assurance",
+      layoutEngineer: "Layout Engineer",
+      analogEngineer: "Analog Circuit Engineer",
+      university: "University Education",
+      projectBackground: "Project Background",
+      technicalStack: "Technical Stack",
+      responsibilities: "Responsibilities",
+      mainAchievements: "Main Achievements",
+      visitedPlaces: "Places Visited",
+      plannedPlaces: "Places to Visit",
+    },
+    locations: {
+      chengdu: "Chengdu, China"
+    },
+    aboutMe: {
+      title: "About Me",
+      content: "I'm a versatile full-stack developer with a unique journey from IC design to software development. With 8+ years of experience in building enterprise applications, I specialize in Java backend services, modern frontend frameworks, and cloud solutions. I excel at solving complex technical challenges and have a proven track record in developing high-performance, scalable systems. Currently available for remote opportunities and freelance projects, I bring a deep understanding of technology from hardware to cloud architecture. Let's create something amazing together!",
+      remoteWork: {
+        title: "Remote Collaboration",
+        description: "Skilled in cross-timezone remote collaboration, available for global projects, providing professional technical support"
+      },
+      technicalInnovation: {
+        title: "Technical Innovation",
+        description: "Passionate about exploring cutting-edge technologies, continuously learning AI, cloud computing and other new technologies"
+      },
+      fullstack: {
+        title: "Full Stack Development",
+        description: "8+ years of enterprise application development experience, proficient in both frontend and backend technology stacks"
+      },
+      projectExperience: {
+        title: "Project Experience",
+        description: "Participated in multiple large-scale project development, skilled at solving complex technical challenges"
+      },
+      freelance: {
+        title: "Freelance",
+        description: "Accept freelance projects, providing professional technical solutions"
+      },
+      hardwareBackground: {
+        title: "Hardware Background",
+        description: "From IC design to software development, deep understanding of underlying technology"
+      }
+    },
+    hobbies: {
+      gaming: {
+        title: "Gaming Journey",
+        description: "Gaming is more than just a hobby for me; it's a passion. From the epic raids in World of Warcraft to the competitive matches in League of Legends, and the immersive stories of single-player Steam games, I'm always ready for the next digital adventure.",
+        achievements: {
+          lol: {
+            title: "League of Legends",
+            description: "As a veteran player, reached Top 1000 rank server-wide, mastered multiple heroes, skilled in team coordination and strategy development",
+            stats: {
+              rank: "Top 1000 Server-wide",
+              winRate: "65%+",
+              matches: "1000+",
+              mainHeroes: ["Invoker", "Storm Spirit", "Shadow Fiend"]
+            }
+          },
+          wow: {
+            title: "World of Warcraft",
+            description: "Completed current version team raid challenge difficulty"
+          },
+          steam: {
+            title: "Steam Collection",
+            description: "Own 100+ game library, completed multiple game platinum achievements"
+          }
+        },
+        stats: {
+          title: "Overall Statistics",
+          totalHours: "Gaming Hours: 2000+",
+          achievements: "Achievements: 500+",
+          teammates: "Teammates: 1000+"
+        }
+      },
+      travel: {
+        title: "Travel Map",
+        description: "I've been fortunate to explore various parts of Asia. From the bustling streets of Tokyo to the serene beaches of Phuket, the vibrant culture of Kuala Lumpur, and the beautiful islands of the Philippines. Each destination offers unique experiences and unforgettable memories.",
+        visitedPlaces: "Places Visited",
+        plannedPlaces: "Places to Visit"
+      }
+    },
+    viewProject: "View Project",
+    projectDetails: {
+      expand: "View Project Details",
+      collapse: "Hide Project Details",
+      projects: "projects"
+    }
   },
   zh: {
     title: "Andy的个人简历",
@@ -99,7 +280,7 @@ const languages: Record<LanguageKey, LanguageContent> = {
     about: "作为一名全栈开发工程师，我拥有从IC设计到软件开发的独特经历。8年以上企业级应用开发经验，专注于Java后端服务、现代前端框架云解决方案。擅长解决复杂技术难题，在开发高性能、可扩展系统方面有着丰富经验。目前可接受远程工作机会和自由职业项目，我的硬件到云架构的深入理解让我能够提供全面的技术解决方案。期待与您共同创造精彩项目！",
     skills: "技能",
     experience: "工作经历",
-    hobbies: "爱好",
+    hobbiesTitle: "爱好", // 替换原来的 hobbies
     projects: "个人作品",
     travelMap: "我的旅行地图",
     contact: "联系我",
@@ -116,6 +297,96 @@ const languages: Record<LanguageKey, LanguageContent> = {
     approachDesc: "通过现代技术栈和最佳实践交付高质量解决方案。",
     learning: "持续成长",
     learningDesc: "保持技术前沿，拓展AI和云解决方案领域的专业知识。",
+    workExperience: {
+      softwareDeveloper: "软件开发工程师",
+      fullstack: "全栈开发",
+      backend: "后端开发",
+      qa: "质量保证",
+      layoutEngineer: "版图工程师",
+      analogEngineer: "模拟电路工程师",
+      university: "大学教育",
+      projectBackground: "项目背景",
+      technicalStack: "技术栈",
+      responsibilities: "职责",
+      mainAchievements: "主要成就",
+      visitedPlaces: "去过的地方",
+      plannedPlaces: "计划去的地方",
+    },
+    locations: {
+      chengdu: "成都"
+    },
+    aboutMe: {
+      title: "关于我",
+      content: "作为一名全栈开发工程师，我拥有从IC设计到软件开发的独特经历。8年以上企业级应用开发经验，专注于Java后端服务、现代前端框架和云解决方案。擅长解决复杂技术难题，在开发高性能、可扩展系统方面有着丰富经验。目前可接受远程工作机会和由职业项目，我的硬件到云架构的深入理解让我能够提供全面的技术解决方案。期待与您共同创造精彩项目！",
+      remoteWork: {
+        title: "远程协作",
+        description: "擅长跨时区远程协作，可接受全球项目，提供专业技术支持"
+      },
+      technicalInnovation: {
+        title: "技术创新",
+        description: "热衷探索前沿技术，持续学习AI、云计算等新技术"
+      },
+      fullstack: {
+        title: "全栈开发",
+        description: "8年+企业级应用开发经验，精通前后端技术栈"
+      },
+      projectExperience: {
+        title: "项目经验",
+        description: "参与多个大型项目开发，擅长解决复杂技术难题"
+      },
+      freelance: {
+        title: "自由职业",
+        description: "接受自由职业项目，提供专业的技术解决方案"
+      },
+      hardwareBackground: {
+        title: "硬件背景",
+        description: "从IC设计到软件开发，深入理解底层技术"
+      }
+    },
+    hobbies: {
+      gaming: {
+        title: "游戏历程",
+        description: "对我来说，游戏不仅仅是一种爱好，更是一种激情。从魔兽世界的史诗级团队副本英雄联盟的竞技对战，再到Steam上沉浸式的单机游戏故事，我随时准备迎接下一次数字冒险。",
+        achievements: {
+          lol: {
+            title: "英雄联盟",
+            description: "作为资深玩家，在英雄联盟中达到全服前1000名，精通多个英雄，擅长团队配合和策略制定",
+            stats: {
+              rank: "全服前1000名",
+              winRate: "65%+",
+              matches: "1000+场",
+              mainHeroes: ["祈求者", "风暴之灵", "影魔"]
+            }
+          },
+          wow: {
+            title: "魔兽世界",
+            description: "完成当前版团队副本挑战难度"
+          },
+          steam: {
+            title: "Steam收藏",
+            description: "拥有100+游戏库藏，完成多个游戏白金成就"
+          }
+        },
+        stats: {
+          title: "总体统计",
+          totalHours: "游戏时长：2000+小时",
+          achievements: "获得成就：500+",
+          teammates: "组队玩家：1000+"
+        }
+      },
+      travel: {
+        title: "旅行地图",
+        description: "我有幸探索了亚洲的多个地区。从东京繁华的街道到普吉岛宁静的海滩，从吉隆坡多元的文化到菲律宾美丽的屿。每个目都带来独特的体验和难忘回忆。",
+        visitedPlaces: "去过的地方",
+        plannedPlaces: "计划去的地方"
+      }
+    },
+    viewProject: "查看项目",
+    projectDetails: {
+      expand: "查看项目详情",
+      collapse: "收起项目详情",
+      projects: "项目"
+    }
   },
   ja: {
     title: "Andyのプロフィール",
@@ -123,12 +394,12 @@ const languages: Record<LanguageKey, LanguageContent> = {
     about: "IC設計からソフトウェア開発まで、独自の経験を持つフルスタック開発者です。8年以上のエンタープライズアプリケーション開発経験を活かし、Javaバックエンド、モダンなフロントエンドフレームワーク、クラウドソリューションを専門としています。複雑な技術的課の解に長け、高性能でスケーラブルなシステム開発の実績があります。現在、リモートワークやフリーランスプロジェクトを募集中。ハードウェアからクラウドアーキテクチャまでの深い理解を活かし、革新的なソリューションを提供します。",
     skills: "スキル",
     experience: "職歴",
-    hobbies: "趣味",
+    hobbiesTitle: "趣味", // 替换原来的 hobbies
     projects: "プロジェト",
     travelMap: "私の行マップ",
     contact: "お問い合わせ",
-    travelDescription: "アジアの様々な地域を探検する機会に恵まれました。東京の賑やかな街並みから、プーケットの静かなビーチ、クアラルンプールの多様な文化、そしてフィリピンの美しい島々まで。それぞれの目的地で独自の体験と忘れられない思い出を得ることができました。",
-    gamingDescription: "ゲームは私にとって単なる趣味以上のもの、それは情熱です。World of Warcraftの壮大なレイドから、League of Legendsの競争的なマッチ、そしてSteamの没入型シングルプレ���ヤーゲームのストーリーまで、私はつねに次のデジタルアドベンチャーの準備ができています。",
+    travelDescription: "アジアの様々な地域を探検する機会に恵まれました。東京の賑やかな並みから、プーケットの静かなビーチ、クアラルンプールの多様な文化、そしてフィリピンの美しい島々まで。それぞれの目的地で独自の体験と忘れられない思い出を得ることができました。",
+    gamingDescription: "ゲームは私にとって単なる趣味以上のもの、それは情熱です。World of Warcraftの壮大なレイから、League of Legendsの競争的なマッチ、そしてSteamの没入型シングルプレヤーゲームのストーリーまで、私はつねに次のデジタルアドベンチャーの準備ができています。",
     visitedCountries: "訪問した国",
     gamingAchievements: "ゲームの実績",
     wechat: "WeChat",
@@ -140,104 +411,230 @@ const languages: Record<LanguageKey, LanguageContent> = {
     approachDesc: "ダな技スタックとベストプラクティスによる高品質なソリューションの提供。",
     learning: "継続的な成長",
     learningDesc: "技術トレンドの最前線に立ち、AIとクラウドソリューションの専門知識を拡大。",
+    workExperience: {
+      softwareDeveloper: "ソフトウェア開発者",
+      fullstack: "フルスタック開発",
+      backend: "バックエンド開発",
+      qa: "品質保証",
+      layoutEngineer: "レイアウトエンジニア",
+      analogEngineer: "アナログ回路エンジニア",
+      university: "大学教育",
+      projectBackground: "プロジェクト背景",
+      technicalStack: "技術スタック",
+      responsibilities: "責任",
+      mainAchievements: "主な成果",
+      visitedPlaces: "訪問した場所",
+      plannedPlaces: "訪問予定の場所",
+    },
+    locations: {
+      chengdu: "成都"
+    },
+    aboutMe: {
+      title: "自己紹介",
+      content: "IC設計からソフトウェア開発まで、独自の経験を持つフルスタック開発者です。8年以上のエンタープライズアプリケーション開発経験を活かし、Javaバックエンド、モダンなフロントエンドフレームワーク、クラウドソリューションを専門としています。複雑な技術的課題の解決に長け、高性能でスケーラブルなシステム開発の実績があります。現在、リモートワークやフリーランスプロジェクトを募集中。ハードウェアからクラウドアーキテクチャまでの深い理解を活かし、革新的なソリューションを提供します。",
+      remoteWork: {
+        title: "リモートコラボレーション",
+        description: "タイムゾーンを越えたリモート協力が得意で、グローバルプロジェクトに対応可能、専門的な技術サポートを提供"
+      },
+      technicalInnovation: {
+        title: "技術革新",
+        description: "最先端技術の探求に熱心で、AI、クラウドコピューティングなどの新技術を継続的に学習"
+      },
+      fullstack: {
+        title: "フルスタック開発",
+        description: "8年以上のエンタープライズアプリケーション開発経験、フロントエンドとバックエンドの技術スタックに精通"
+      },
+      projectExperience: {
+        title: "プロジェクト経験",
+        description: "複数の大規模プロジェクト開発に参加、複雑な技術的課題の解決が得意"
+      },
+      freelance: {
+        title: "フリーランス",
+        description: "フリーランスプロジェクトを受託、専門的な技術ソリューションを提供"
+      },
+      hardwareBackground: {
+        title: "ハードウェア背景",
+        description: "IC設計からソフトウェア開発まで、基盤技術への深い理解"
+      }
+    },
+    hobbies: {
+      gaming: {
+        title: "ゲーム経歴",
+        description: "ゲームは私にとって単なる趣味以上のもの、それは情熱です。World of Warcraftの壮大なレイドから、League of Legendsの競争的なマッチ、そしてSteamの没入型シングルプレイヤーゲームのストーリーまで、私はつねに次のデジタルアドベンチャーの準備ができています。",
+        achievements: {
+          lol: {
+            title: "リーグ・オブ・レジェンド",
+            description: "ベテランプレイヤーとして、サーバー全体でトップ1000位に到達、複数のヒーローをマスター、チーム連携と戦略立案が得意",
+            stats: {
+              rank: "サーバー全体トップ1000",
+              winRate: "65%以上",
+              matches: "1000試合以上",
+              mainHeroes: ["インヴォーカー", "ストームスピリット", "シャドウフィーンド"]
+            }
+          },
+          wow: {
+            title: "World of Warcraft",
+            description: "現行バージョンのチームレイドチャレンジ難易度をクリア"
+          },
+          steam: {
+            title: "Steamコレクション",
+            description: "100以上のゲームライブラリを所有、複数のゲームでプラチナ実績を達成"
+          }
+        },
+        stats: {
+          title: "総合統計",
+          totalHours: "プレイ時間：2000時間以上",
+          achievements: "達成実績：500以上",
+          teammates: "チームメイト：1000人以上"
+        }
+      },
+      travel: {
+        title: "旅行マップ",
+        description: "アジアの様々な地域を探検する機会に恵まれました東京の賑やな街並みから、プーケットの静かなビーチ、クアラルンプールの多様な文化、そしてフィリピンの美しい島々まで。それぞれの目的地で独自の体験と忘れられない思い出を得ることができました。",
+        visitedPlaces: "訪問した場所",
+        plannedPlaces: "訪問予定の場所"
+      }
+    },
+    viewProject: "プロジェクトを見る",
+    projectDetails: {
+      expand: "プロジェクト詳細を表示",
+      collapse: "プロジェクト詳細を隠す",
+      projects: "プロジェクト"
+    }
   },
 }
 
-// 首先更新 visitedCountries 数据
-const visitedCountries: Country[] = [
+// 更新 visitedCountries 数据
+const visitedCountries = [
   {
-    name: "Japan",
-    nameZh: "日本",
-    coordinates: [139.6503, 35.6762], // 确保是两个数字的元组
+    name: {
+      en: "Japan",
+      zh: "日本",
+      ja: "日本"
+    },
+    coordinates: [139.6503, 35.6762],
     type: "visited",
-    highlights: ["东京", "大阪", "京都", "富士山"],
+    highlights: {
+      en: ["Tokyo", "Osaka", "Kyoto", "Mt. Fuji"],
+      zh: ["东京", "大阪", "京都", "富士山"],
+      ja: ["東京", "大阪", "京都", "富士山"]
+    },
     color: "#FF4B4B"
   },
   {
-    name: "Malaysia",
-    nameZh: "马来西亚",
-    coordinates: [101.6869, 3.1390],
-    type: "visited",
-    highlights: ["吉隆坡", "槟城", "马六甲", "云顶高原"],
-    color: "#4BB4FF"
-  },
-  {
-    name: "Thailand",
-    nameZh: "泰国",
+    name: {
+      en: "Thailand",
+      zh: "泰国",
+      ja: "タイ"
+    },
     coordinates: [100.5018, 13.7563],
     type: "visited",
-    highlights: ["曼谷", "普吉岛", "清", "芭提雅"],
+    highlights: {
+      en: ["Bangkok", "Phuket", "Chiang Mai", "Pattaya"],
+      zh: ["曼谷", "普吉岛", "清迈", "芭提雅"],
+      ja: ["バンコク", "プーケット", "チェンマイ", "パタヤ"]
+    },
     color: "#4BFF4B"
   },
   {
-    name: "Philippines",
-    nameZh: "菲律宾",
+    name: {
+      en: "Philippines",
+      zh: "菲律宾",
+      ja: "フィリピン"
+    },
     coordinates: [120.9842, 14.5995],
     type: "visited",
-    highlights: ["马尼拉", "宿务", "长滩岛", "巴拉望"],
+    highlights: {
+      en: ["Manila", "Cebu", "Boracay", "Palawan"],
+      zh: ["马尼拉", "宿务", "长滩岛", "巴拉望"],
+      ja: ["マニラ", "セブ", "ボラカイ", "パラワン"]
+    },
     color: "#FFB74B"
+  },
+  {
+    name: {
+      en: "Malaysia",
+      zh: "马来西亚",
+      ja: "マレーシア"
+    },
+    coordinates: [101.6869, 3.1390],
+    type: "visited",
+    highlights: {
+      en: ["Kuala Lumpur", "Penang", "Malacca", "Genting Highlands"],
+      zh: ["吉隆坡", "槟城", "马六甲", "云顶高原"],
+      ja: ["クアラルンプール", "ペナン", "マラッカ", "ゲンティン・ハイランド"]
+    },
+    color: "#4BB4FF"
   }
 ];
 
-// 计划访问的国家
-const plannedCountries: Country[] = [
+// 更新 plannedCountries 数据
+const plannedCountries = [
   {
-    name: "United States",
-    nameZh: "美国",
-    coordinates: [-95.7129, 37.0902], // 确保是两个数字的元组
+    name: {
+      en: "United States",
+      zh: "美国",
+      ja: "アメリカ"
+    },
+    coordinates: [-95.7129, 37.0902],
     type: "planned",
-    highlights: ["纽约", "洛杉矶", "旧金山", "黄石公园"],
+    highlights: {
+      en: ["New York", "Los Angeles", "San Francisco", "Yellowstone"],
+      zh: ["纽约", "洛杉矶", "旧金山", "黄石公园"],
+      ja: ["ニューヨーク", "ロサンゼルス", "サンフランシスコ", "イエローストーン"]
+    },
     color: "#A78BFA"
   },
   {
-    name: "New Zealand",
-    nameZh: "新西兰",
-    coordinates: [174.8860, -40.9006],
-    type: "planned",
-    highlights: ["奥克兰", "霍比特村", "皇后镇", "米尔福德峡湾"],
-    color: "#34D399"
-  },
-  {
-    name: "Iceland",
-    nameZh: "冰岛",
-    coordinates: [-19.0208, 64.9631],
-    type: "planned",
-    highlights: ["雷克雅未克", "蓝湖", "黄金圈", "极光"],
-    color: "#60A5FA"
-  },
-  {
-    name: "Egypt",
-    nameZh: "埃及",
+    name: {
+      en: "Egypt",
+      zh: "埃及",
+      ja: "エジプト"
+    },
     coordinates: [30.8025, 26.8206],
     type: "planned",
-    highlights: ["金字塔", "卢克索", "红海", "尼罗河"],
+    highlights: {
+      en: ["Pyramids", "Luxor", "Red Sea", "Nile River"],
+      zh: ["金字塔", "卢克索", "红海", "尼罗河"],
+      ja: ["ピラミッド", "ルクソール", "紅海", "ナイル川"]
+    },
     color: "#F59E0B"
+  },
+  {
+    name: {
+      en: "Iceland",
+      zh: "冰岛",
+      ja: "アイスランド"
+    },
+    coordinates: [-19.0208, 64.9631],
+    type: "planned",
+    highlights: {
+      en: ["Reykjavik", "Blue Lagoon", "Golden Circle", "Northern Lights"],
+      zh: ["雷克雅未克", "蓝湖", "黄金圈", "北极光"],
+      ja: ["レイキャビク", "ブルーラグーン", "ゴールデンサークル", "オーロラ"]
+    },
+    color: "#60A5FA"
   }
 ];
 
+// 定义游戏成就类型
+interface GameAchievement {
+  game: 'LOL' | 'WOW' | 'STEAM';  // 使用固定的游戏类型
+  icon: () => JSX.Element;
+}
+
 // 更新游戏成就数据
-const gamingAchievements = [
+const gamingAchievements: GameAchievement[] = [
   {
-    game: "英雄联盟2",
-    achievement: "Top 1000 Rank",
-    details: "作为资深玩家，在英雄联盟2中达到全服前1000名，精通多个英雄，擅长团队配合和策略制定",
+    game: 'LOL',
     icon: () => (
       <svg viewBox="0 0 24 24" className="w-6 h-6" fill="#D13639">
         <path d="M12.534 21.77l-1.09-2.81 10.52-.62L16.4 9.91l1.62-4.7-4.17 4.31-1.89-8.14-1.89 8.14-4.17-4.31 1.62 4.7-5.56 8.43 10.52.62-1.09 2.81c-.38.984.435 2.052 1.09 2.052.655 0 1.47-1.068 1.09-2.052zm0 0" />
-        <path d="M12 16.5c-.828 0-1.5-.672-1.5-1.5s.672-1.5 1.5-1.5 1.5.672 1.5 1.5-.672 1.5-1.5 1.5zm0 0" />
       </svg>
-    ),
-    stats: {
-      rank: "全服前1000名",
-      winRate: "65%+",
-      matches: "1000+",
-      mainHeroes: ["Invoker", "Storm Spirit", "Shadow Fiend"]
-    }
+    )
   },
   {
-    game: "World of Warcraft",
-    achievement: "Mythic Raid Clear",
-    details: "成当前版本团队副本挑战难度",
+    game: 'WOW',
     icon: () => (
       <svg viewBox="0 0 24 24" className="w-6 h-6" fill="#FFB54C">
         <path d="M3.219 2.154L6.75 4.5l3.25-1.5 3.25 1.5 3.531-2.346L19.5 4.5l-1.594 5.25L21 13.5l-2.938 1.594-.062 4.156-3.75 1.5-2.25-1.5-2.25 1.5-3.75-1.5-.062-4.156L3 13.5l3.094-3.75L4.5 4.5l-1.281-2.346z" />
@@ -245,22 +642,10 @@ const gamingAchievements = [
     )
   },
   {
-    game: "League of Legends",
-    achievement: "Diamond Rank",
-    details: "在英雄联盟中达到钻石段位",
-    icon: () => (
-      <svg viewBox="0 0 24 24" className="w-6 h-6" fill="#00A8FF">
-        <path d="M12 2L1.5 6.5v5c0 6.5 4.5 10 10.5 10s10.5-3.5 10.5-10v-5L12 2zm0 18c-4.5 0-8.5-2.5-8.5-8.5v-3.8L12 4.2l8.5 3.5v3.8c0 6-4 8.5-8.5 8.5z" />
-      </svg>
-    )
-  },
-  {
-    game: "Steam",
-    achievement: "Collection Master",
-    details: "拥有100+游戏库藏，完成多个游戏白金成就",
+    game: 'STEAM',
     icon: () => (
       <svg viewBox="0 0 24 24" className="w-6 h-6" fill="#1B2838">
-        <path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zM4.586 12.086l.002-.006c.004-.008.008-.017.012-.025.004-.008.01-.015.015-.023.005-.007.01-.014.016-.021.006-.007.013-.013.02-.019.006-.007.013-.013.02-.019.007-.006.015-.011.022-.016.008-.005.015-.01.023-.015.008-.004.017-.008.025-.012l.006-.002 3.601-1.802c-.404-1.67.238-3.427 1.68-4.353 1.929-1.237 4.501-.695 5.738 1.234.521.813.711 1.752.569 2.665l3.601 1.802.006.002c.008.004.017.008.025.012.008.004.015.01.023.015.008.005.015.01.022.016.007.006.014.013.02.019.007.006.013.013.02.019.006.007.011.015.016.021.005.007.01.015.015.023.004.008.008.017.012.025l.002.006c.061.138.061.295 0 .433l-.002.006c-.004.008-.008.017-.012.025-.004.008-.01.015-.015.023-.005.007-.01.014-.016.021-.006.007-.013.013-.02.019-.006.007-.013.013-.02.019-.007.006-.015.011-.022.016-.008.005-.015.01-.023.015-.008.004-.017.008-.025.012l-.006.002-3.601 1.802c.142.913-.048 1.852-.569 2.665-1.237 1.929-3.809 2.471-5.738 1.234-1.442-.926-2.084-2.683-1.68-4.353l-3.601-1.802-.006-.002c-.008-.004-.017-.008-.025-.012-.008-.004-.015-.01-.023-.015-.008-.005-.015-.01-.022-.016-.007-.006-.014-.013-.02-.019-.007-.006-.013-.013-.02-.019-.006-.007-.011-.015-.016-.021-.005-.007-.01-.015-.015-.023-.004-.008-.008-.017-.012-.025l-.002-.006c-.061-.138-.061-.295 0-.433z" />
+        <path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2z" />
       </svg>
     )
   }
@@ -314,7 +699,7 @@ const skills = [
     name: "TypeScript",
     icon: () => (
       <svg viewBox="0 0 24 24" className="w-4 h-4" fill="#3178C6">
-        <path d="M1.125 0C.502 0 0 .502 0 1.125v21.75C0 23.498.502 24 1.125 24h21.75c.623 0 1.125-.502 1.125-1.125V1.125C24 .502 23.498 0 22.875 0zm17.363 9.75c.612 0 1.154.037 1.627.111a6.38 6.38 0 0 1 1.306.34v2.458a3.95 3.95 0 0 0-.643-.361 5.093 5.093 0 0 0-.717-.26 5.453 5.453 0 0 0-1.426-.2c-.3 0-.573.028-.819.086a2.1 2.1 0 0 0-.623.242c-.17.104-.3.229-.393.374a.888.888 0 0 0-.14.49c0 .196.053.373.156.529.104.156.252.304.443.444s.423.276.696.41c.273.135.582.274.926.416.47.197.892.407 1.266.628.374.222.695.473.963.753.268.279.472.598.614.957.142.359.214.776.214 1.253 0 .657-.125 1.21-.373 1.656a3.033 3.033 0 0 1-1.012 1.085 4.38 4.38 0 0 1-1.487.596c-.566.12-1.163.18-1.79.18a9.916 9.916 0 0 1-1.84-.164 5.544 5.544 0 0 1-1.512-.493v-2.63a5.033 5.033 0 0 0 3.237 1.2c.333 0 .624-.03.872-.09.249-.06.456-.144.623-.25.166-.108.29-.234.373-.38a1.023 1.023 0 0 0-.074-1.089 2.12 2.12 0 0 0-.537-.5 5.597 5.597 0 0 0-.807-.444 27.72 27.72 0 0 0-1.007-.436c-.918-.383-1.602-.852-2.053-1.405-.45-.553-.676-1.222-.676-2.005 0-.614.123-1.141.369-1.582.246-.441.58-.804 1.004-1.089a4.494 4.494 0 0 1 1.47-.629 7.536 7.536 0 0 1 1.77-.201zm-15.113.188h9.563v2.166H9.506v9.646H6.789v-9.646H3.375z" />
+        <path d="M1.125 0C.502 0 0 .502 0 1.125v21.75C0 23.498.502 24 1.125 24h21.75c.623 0 1.125-.502 1.125-1.125V1.125C24 .502 23.498 0 22.875 0zm17.363 9.75c.612 0 1.154.037 1.627.111a6.38 6.38 0 0 1 1.306.34v2.458a3.95 3.95 0 0 0-.643-.361 5.093 5.093 0 0 0-.717-.26 5.453 5.453 0 0 0-1.426-.2c-.3 0-.573.028-.819.086a2.1 2.1 0 0 0-.623.242c-.17.104-.3.229-.393.374a.888.888 0 0 0-.14.49c0 .196.053.373.156.529.104.156.252.304.444s.423.276.696.41c.273.135.582.274.926.416.47.197.892.407 1.266.628.374.222.695.473.963.753.268.279.472.598.614.957.142.359.214.776.214 1.253 0 .657-.125 1.21-.373 1.656a3.033 3.033 0 0 1-1.012 1.085 4.38 4.38 0 0 1-1.487.596c-.566.12-1.163.18-1.79.18a9.916 9.916 0 0 1-1.84-.164 5.544 5.544 0 0 1-1.512-.493v-2.63a5.033 5.033 0 0 0 3.237 1.2c.333 0 .624-.03.872-.09.249-.06.456-.144.623-.25.166-.108.29-.234.373-.38a1.023 1.023 0 0 0-.074-1.089 2.12 2.12 0 0 0-.537-.5 5.597 5.597 0 0 0-.807-.444 27.72 27.72 0 0 0-1.007-.436c-.918-.383-1.602-.852-2.053-1.405-.45-.553-.676-1.222-.676-2.005 0-.614.123-1.141.369-1.582.246-.441.58-.804 1.004-1.089a4.494 4.494 0 0 1 1.47-.629 7.536 7.536 0 0 1 1.77-.201zm-15.113.188h9.563v2.166H9.506v9.646H6.789v-9.646H3.375z" />
       </svg>
     ),
     color: "#3178C6"
@@ -523,6 +908,8 @@ export function PortfolioPage() {
     setCurrentProject((prev) => (prev - 1 + projects.length) % projects.length)
   }
 
+  const currentLangWorkExp = workExperience[lang];
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-background to-secondary/20 text-foreground relative overflow-hidden">
       <motion.div
@@ -661,7 +1048,7 @@ export function PortfolioPage() {
 
                   <div className="relative z-10">
                     <h3 className="text-2xl font-bold mb-4 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-                      关于我
+                      {t.aboutMe.title}  {/* 使用翻译 */}
                     </h3>
                     <p className="text-lg leading-relaxed text-foreground/90">
                       {t.about}
@@ -680,11 +1067,11 @@ export function PortfolioPage() {
                       <Globe className="w-6 h-6 text-primary animate-pulse" />
                     </div>
                     <h3 className="text-xl font-semibold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-                      远程协作
+                      {t.aboutMe.remoteWork.title}
                     </h3>
                   </div>
                   <p className="text-muted-foreground">
-                    擅长跨时区远程协作，可接受全球项目，提供专业技术支持
+                    {t.aboutMe.remoteWork.description}
                   </p>
                 </motion.div>
 
@@ -699,11 +1086,11 @@ export function PortfolioPage() {
                       <Lightbulb className="w-6 h-6 text-primary animate-pulse" />
                     </div>
                     <h3 className="text-xl font-semibold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-                      技术创新
+                      {t.aboutMe.technicalInnovation.title}
                     </h3>
                   </div>
                   <p className="text-muted-foreground">
-                    热衷探索前沿技术，持续学习AI、云计算等新技术
+                    {t.aboutMe.technicalInnovation.description}
                   </p>
                 </motion.div>
 
@@ -718,11 +1105,11 @@ export function PortfolioPage() {
                       <Code2 className="w-6 h-6 text-primary animate-pulse" />
                     </div>
                     <h3 className="text-xl font-semibold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-                      全栈开发
+                      {t.aboutMe.fullstack.title}
                     </h3>
                   </div>
                   <p className="text-muted-foreground">
-                    8年+企业级应用开发经验，精通前后端技术栈
+                    {t.aboutMe.fullstack.description}
                   </p>
                 </motion.div>
 
@@ -737,11 +1124,11 @@ export function PortfolioPage() {
                       <Briefcase className="w-6 h-6 text-primary animate-pulse" />
                     </div>
                     <h3 className="text-xl font-semibold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-                      项目经验
+                      {t.aboutMe.projectExperience.title}
                     </h3>
                   </div>
                   <p className="text-muted-foreground">
-                    参与多个大型项目开发，擅长解决复杂技术难题
+                    {t.aboutMe.projectExperience.description}
                   </p>
                 </motion.div>
 
@@ -756,11 +1143,11 @@ export function PortfolioPage() {
                       <Rocket className="w-6 h-6 text-primary animate-pulse" />
                     </div>
                     <h3 className="text-xl font-semibold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-                      自由职业
+                      {t.aboutMe.freelance.title}
                     </h3>
                   </div>
                   <p className="text-muted-foreground">
-                    接受自由职业目，提供专的技术解决方案
+                    {t.aboutMe.freelance.description}
                   </p>
                 </motion.div>
 
@@ -775,11 +1162,11 @@ export function PortfolioPage() {
                       <Cpu className="w-6 h-6 text-primary animate-pulse" />
                     </div>
                     <h3 className="text-xl font-semibold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-                      硬件背景
+                      {t.aboutMe.hardwareBackground.title}
                     </h3>
                   </div>
                   <p className="text-muted-foreground">
-                    从IC设计到软件开发，深入理解底层技术
+                    {t.aboutMe.hardwareBackground.description}
                   </p>
                 </motion.div>
               </div>
@@ -823,433 +1210,108 @@ export function PortfolioPage() {
         >
           <h2 className="text-3xl font-bold mb-6 text-primary">{t.experience}</h2>
           <div className="space-y-8">
+            {/* 软件开发工程师 */}
             <TimelineItem
               icon={Briefcase}
-              title="成都 Java开发/前端/app开发/全栈开发"
-              period="2021.07-至今"
-              location="成都"
-              description="全栈开发工程师，负责多个项目的架构设计和开发现"
-              projects={[
-                {
-                  title: "力运株式会社仓储系统",
-                  period: "2021-至今",
-                  type: "全栈开发",
-                  description: "远程开发，合作开发，对原有的后仓储服务二次开发，实现多仓储的ERP后台服务",
-                  details: [
-                    "项目背景：远程开发，合作开发，对原有的后台仓储服务二次开发，核心业务是仓储的ERP后台服务，多用户体系、仓储货物追踪、进出库灯架控制等",
-                    "开发环境架构：",
-                    "• Vue3、Vuetify2、Pinia",
-                    "• JDK1.8、SpringBoot、MyBatis-Plus",
-                    "• Redis、MySQL、Skywalking、Elasticsearch",
-                    "• AWS ECS、Git",
-                    "技术负责：",
-                    "1. 对现有的JSP+Java后台服务进行升级改造，进行前后分离，使用Vue3+Vuetify2重新设计后台页面，实现用户体系页面，权限页面，日志追踪页面",
-                    "2. 使用若依plus的单体服务作为接口服务，主要实现：",
-                    "   • 用户体系和权限设计",
-                    "   • 日志服务和仓储变动追踪",
-                    "   • 三方货架灯接口对接",
-                    "   • 基于Redis延迟队列的任务处理",
-                    "   • 基于Skywalking+ES探针技术的服务链路追踪"
-                  ],
-                  technologies: [
-                    "Vue.js 3",
-                    "Vuetify",
-                    "Pinia",
-                    "Spring Boot",
-                    "MyBatis-Plus",
-                    "Redis",
-                    "MySQL",
-                    "Skywalking",
-                    "Elasticsearch",
-                    "AWS ECS"
-                  ]
-                },
-                {
-                  title: "铭泰中弘 OA系统",
-                  type: "全栈开发",
-                  description: "企业信息化升级，搭建信息化后台系统",
-                  details: [
-                    "项目背景：企信息化升级，搭建信息化后台系，主要业务-人员组织架构、项目报表管、项目审核程、与老系统对接生成ODS文件",
-                    "技术架构：ruoyi-plus二开项目、springboot单体、redis消息队列、mysql储、vue2前端页面、elementui",
-                    "负责内容：项目架构设计、数据库建表、需求转业务、业务实现"
-                  ],
-                  technologies: ["Spring Boot", "Redis", "MySQL", "Vue.js", "Element UI"]
-                },
-                {
-                  title: "博弈优品-闲置新生",
-                  type: "二手批发电商小程序",
-                  description: "2B&2C商城项目，主营二手手机销售",
-                  details: [
-                    "项目背景：2B&2C商城项目主营二手手机销售，核心业务包括二手批发、回收报价、自由市场、2C嫁接商城、质检管理、ERP",
-                    "技术架构：Uniapp、unicloud、MongoDB、Elasticsearch、Pinia、Redis、unicloud云函、uniadmin、VantUI、NVUI",
-                    "负责内容：",
-                    "- 负责项目多端技术实现、技术选型、需求转化数据库表设计、开发环境搭建",
-                    "- 实现多端登录、支付、地图、统计、用户体系、服等功能",
-                    "- Java对接京东物流，实现预单下单云打印物流推送"
-                  ],
-                  technologies: ["Uniapp", "MongoDB", "Elasticsearch", "Java", "Vue.js"]
-                },
-                {
-                  title: "骑士派小程序",
-                  type: "全栈开发",
-                  description: "远程开发，全栈开发，独立开发，微信小程序可打包安卓端，共4个端（用户端/骑士端）",
-                  details: [
-                    "目背景：远开发，全栈开发，独立开发，微信小程序可打包安卓端，共4个端，用户端/骑士端",
-                    "开发环境架构：",
-                    "• JDK1.8、SpringBoot、MyBatis",
-                    "• Redis、Vue3、Uniapp、Vant",
-                    "• Docker、MinIO、GitLab",
-                    "技术负责：",
-                    "1. 使用Uniapp开发小程序前端，后端基于若依plus的接口服务与后台服务，主要实现：",
-                    "   • 多租户的用户体系",
-                    "   • 阿里云短信登录",
-                    "   • 对接微信支付宝支付",
-                    "   • 基于Redis迟队列订阅管道",
-                    "   • 定位的实现区域自动派单",
-                    "   • 超时支付单处理",
-                    "   • 罚单计算（位置异常超时异常）",
-                    "   • Redission锁解决抢单并发",
-                    "2. Uniapp功能实现：",
-                    "   • 内置腾讯地图导航、描点、选点、路线规划",
-                    "   • 分享海报",
-                    "   • 订阅模板消息",
-                    "   • 骑手端抢单大厅",
-                    "3. 后台管理系统（Vue3 + Element UI）实现：",
-                    "   • 用户体系",
-                    "   • 订单管理",
-                    "   • 网站管理",
-                    "   • 内容管理",
-                    "   • 数据统计",
-                    "   • Excel导入导出"
-                  ],
-                  technologies: [
-                    "Vue.js 3",
-                    "Uniapp",
-                    "Spring Boot",
-                    "MyBatis",
-                    "Redis",
-                    "Docker",
-                    "MinIO",
-                    "Element UI",
-                    "Vant"
-                  ]
-                }
-              ]}
+              title={currentLangWorkExp.companies.softwareCompany.name}
+              period={currentLangWorkExp.companies.softwareCompany.period}
+              location={currentLangWorkExp.companies.softwareCompany.location}
+              description={currentLangWorkExp.companies.softwareCompany.description}
+              projects={currentLangWorkExp.companies.softwareCompany.projects}
+              translations={{
+                expand: t.projectDetails.expand,
+                collapse: t.projectDetails.collapse,
+                projects: t.projectDetails.projects
+              }}
             />
+
+            {/* 数字设计工作室 */}
             <TimelineItem
               icon={Briefcase}
-              title="都数智设计作室 Java开发"
-              period="2020.07-2021.07"
-              location="成都"
-              description="参与公司产品的需求分析，架构设计，编码、技术文档编写等开发工作、负责后台服务开发"
-              projects={[
-                {
-                  title: "品冠销售二手汽车销售服务系统",
-                  type: "全栈开发",
-                  description: "二手汽车销售服务系统，包含管理端后台系统、API服务、支付系统、客服系统",
-                  details: [
-                    "项目背景：",
-                    "1. 管理端后台系前端搭建以及业务实现",
-                    "2. Android App WebView混合开发，系统主要包含：",
-                    "   • 管理端后台系统",
-                    "   • API服务",
-                    "   • 支付系",
-                    "   • 客服系统",
-                    "主要功能：",
-                    "• API服务：注册、登录、客服、汽车商品展示、维修保养、销售预约、销售评价",
-                    "• 后台系统：商品管理、用户管理、商品服务管理、订单管理、支付管理、第三方支付渠道管理、报表统计客服管理、系统配置",
-                    "• App：使用WebView套壳网实现App功能",
-                    "开发环境架构：",
-                    "• JDK1.8、Android SDK 29、Maven、Gradle、SVN",
-                    "• SpringBoot、MyBatis-plus、Redis、Satoken",
-                    "• MySQL、Lock4j、MinIO、Skywalking、Elasticsearch",
-                    "技术负责：",
-                    "1. 负责项目管理端后台系统：",
-                    "   • 服务搭建、技术选型",
-                    "   • 参与需求转化数据库设计",
-                    "   • 开发环境搭建",
-                    "   • 后台系统服务业务功能开发实现",
-                    "2. 核心功能实现：",
-                    "   • 引入Satoken+Redis轻量化框架实现权限",
-                    "   • Lock4j+Redis分布式锁防重提交",
-                    "   • 定时器实现客户预约自动销售分配、自动短信通知、自动通知栏送",
-                    "3. 系统集成：",
-                    "   • 后台集成极光推送客服端，现群推定向推送功能",
-                    "   • 引入Skywalking实现服务性能监控、日志采集、告警",
-                    "   • 实现基于AOP的日志管理",
-                    "4. App端开发：",
-                    "   • WebView与前端混合开发，节约多端开发成本",
-                    "   • 集成常用App功能：",
-                    "     - 支付宝SDK",
-                    "     - 微信SDK",
-                    "     - 极光SDK",
-                    "     - OpenInstall SDK",
-                    "   • 实现功能：",
-                    "     - 后台推送手机消息",
-                    "     - 拉起支付",
-                    "     - 带参安装",
-                    "     - 安装下载统计",
-                    "     - 微信分享",
-                    "     - 地图导航"
-                  ],
-                  technologies: [
-                    "Spring Boot",
-                    "MyBatis-Plus",
-                    "Redis",
-                    "MySQL",
-                    "Elasticsearch",
-                    "Android",
-                    "WebView",
-                    "Satoken",
-                    "Lock4j",
-                    "MinIO",
-                    "Skywalking"
-                  ]
-                }
-              ]}
+              title={currentLangWorkExp.companies.digitalStudio.name}
+              period={currentLangWorkExp.companies.digitalStudio.period}
+              location={currentLangWorkExp.companies.digitalStudio.location}
+              description={currentLangWorkExp.companies.digitalStudio.description}
+              projects={currentLangWorkExp.companies.digitalStudio.projects}
+              translations={{
+                expand: t.projectDetails.expand,
+                collapse: t.projectDetails.collapse,
+                projects: t.projectDetails.projects
+              }}
             />
+
+            {/* 华为 */}
             <TimelineItem
               icon={Briefcase}
-              title="成都软通动力（华为成都研究所） Java开发"
-              period="2016.12-2020.01"
-              location="成都"
-              description="参与华为多个重要项目的开发和维护工作"
-              projects={[
-                {
-                  title: "华为 AIFlow 算法训练平台",
-                  type: "后端开发",
-                  description: "华为2012实验室下的AiFlow算法训练平台开发，实现机器学习和深度学习的在线训练平台",
-                  details: [
-                    "项目背景：华为2012实验室下的AiFlow算法训练平台开发，平台主要功能：",
-                    "• 机械&深度学习jupter在线算法编辑",
-                    "• 训练任务资源（服务器、GPU、CPU）申请、审批、创建、运行、监、日志检索",
-                    "• 数据标注服务、数据清洗服务、数据集检索服务",
-                    "• 支持可选TensorFlow&Caffe框架运算，支持多机多卡任务训练",
-                    "开发环境架构：",
-                    "• JDK1.8、虚拟云桌面、Git、DevCloud iSource",
-                    "• SpringCloud、Nacos、Gateway、MyBatis-Plus",
-                    "• RabbitMQ、Redis、MongoDB、Elasticsearch",
-                    "技术负责：",
-                    "1. 后台深度学管理功能实现：",
-                    "   • 任务模块（redis延迟队列定时器扫描自动开启任务）",
-                    "   • 训练模块（实现不同系统（Tensorflow、Caffe）获取训练模板选择训练模式，获取mongodb数据集json）",
-                    "   • 数据集模块",
-                    "   • 一键运行日志批量导入ES实现快速检索",
-                    "2. 实现深学习任务调服务：",
-                    "   • 线程池多线程处理任务调度",
-                    "   • 延迟任务调度实现",
-                    "3. 邮件服务审批资源：",
-                    "   • 绑定MQ任务消息队列",
-                    "   • 消费任务消息根据类型（深度、机器、多机多卡）根据邮件模板发邮件到相关负责人"
-                  ],
-                  technologies: [
-                    "Spring Cloud",
-                    "Nacos",
-                    "Gateway",
-                    "MyBatis-Plus",
-                    "RabbitMQ",
-                    "Redis",
-                    "MongoDB",
-                    "Elasticsearch",
-                    "TensorFlow",
-                    "Caffe"
-                  ]
-                },
-                {
-                  title: "华为印度电信商BA基站系统",
-                  type: "后端开发",
-                  description: "为无线部门为印度电信商搭建的基站管理系统，实现设备运营状态的统和管理",
-                  details: [
-                    "项目背景：该系统是华为无线部门为华为客户印度电信商搭建的使用华为设备基站管理系统，管理统计华为运营商下设备运营状态，集库存、修理、责任人一体化统计管理基站设备",
-                    "开发环境架构：",
-                    "• JDK1.7、虚拟云桌面、Maven、SVN",
-                    "• SpringMVC、MyBatis、MQ、Redis",
-                    "• JSP、Bootstrap",
-                    "技术负责：",
-                    "1. 后台新增模块实现：",
-                    "   • 基站数据信息汇总定时器拉取json数据批量入库",
-                    "   • AOP加解密实现",
-                    "2. 性能优化：",
-                    "   • 处理线上性能故障进行性能调优",
-                    "   • 处慢SQL",
-                    "   • 修改日bug",
-                    "3. 数据库分表，部分代码重构"
-                  ],
-                  technologies: [
-                    "Spring MVC",
-                    "MyBatis",
-                    "Redis",
-                    "MQ",
-                    "JSP",
-                    "Bootstrap",
-                    "Maven"
-                  ]
-                }
-              ]}
+              title={currentLangWorkExp.companies.huawei.name}
+              period={currentLangWorkExp.companies.huawei.period}
+              location={currentLangWorkExp.companies.huawei.location}
+              description={currentLangWorkExp.companies.huawei.description}
+              projects={currentLangWorkExp.companies.huawei.projects}
+              translations={{
+                expand: t.projectDetails.expand,
+                collapse: t.projectDetails.collapse,
+                projects: t.projectDetails.projects
+              }}
             />
+
+            {/* 游戏公司 */}
             <TimelineItem
               icon={Briefcase}
-              title="成都迁之游（2K GAME）有限公司 QA"
-              period="2016.08-2016.09"
-              location="成都"
-              description="参与2K GAME游戏测试部门，负责多款知名游戏的测试工作"
-              projects={[
-                {
-                  title: "2K Games 游戏测试",
-                  type: "游戏测试",
-                  description: "参与多款2K Games旗下知名游戏的功能测试、性能测试和本地化测试工作",
-                  details: [
-                    "项目背景：",
-                    "作为QA团队成员参与2K Games旗下多款知名游戏的测试工作，包括：",
-                    "• 黑手党2（Mafia II）",
-                    "• 文明手游（Civilization Mobile）",
-                    "• NBA 2K系列",
-                    "• 无主之地（Borderlands）",
-                    "测试职责：",
-                    "1. 能测试：",
-                    "   • 执行游戏功能的系统测试",
-                    "   • 验证游戏核心玩法和机制",
-                    "   • 检查游戏界面和用户交互",
-                    "   • 测试多平台兼容性",
-                    "2. 性能测试：",
-                    "   • 监测游戏运行性能",
-                    "   • 检查游戏加载时间",
-                    "   • 评估游戏稳定性",
-                    "   • 测试不同硬件配置下的表现",
-                    "3. 本地化测试：",
-                    "   • 验证游戏文本翻译准确性",
-                    "   • 检查面布局适配",
-                    "   • 确认本地化内容的文适应性",
-                    "4. Bug报告和跟踪：",
-                    "   • 详细记录发现的问题",
-                    "   • 使用bug跟踪系统提交报告",
-                    "   • 验证bug修复情况",
-                    "   • 参与每日测试总结会议",
-                    "主要成果：",
-                    "• 参与完成多款游戏的质量保证工作",
-                    "• 提供详细的测试报告和改进建议",
-                    "• 协助提升游戏用户体验",
-                    "• 确保游戏发布质量达标"
-                  ],
-                  technologies: [
-                    "游戏测试",
-                    "Bug跟踪系统",
-                    "性能测试工具",
-                    "本地化测试",
-                    "测试用例设",
-                    "测试报告编写"
-                  ]
-                }
-              ]}
+              title={currentLangWorkExp.companies.gameCompany.name}
+              period={currentLangWorkExp.companies.gameCompany.period}
+              location={currentLangWorkExp.companies.gameCompany.location}
+              description={currentLangWorkExp.companies.gameCompany.description}
+              projects={currentLangWorkExp.companies.gameCompany.projects}
+              translations={{
+                expand: t.projectDetails.expand,
+                collapse: t.projectDetails.collapse,
+                projects: t.projectDetails.projects
+              }}
             />
+
+            {/* 微光集电 */}
             <TimelineItem
               icon={Briefcase}
-              title="成都微光集电科技有限公司 模拟layout工程师"
-              period="2015.08-2016.08"
-              location="成都"
-              description="参与多个芯片的模拟版图设计与验证工作"
-              projects={[
-                {
-                  title: "华力微电子40nm工艺PR数字单元库设计",
-                  type: "模拟版图设计",
-                  description: "数字单元库的模拟版图设计与验证",
-                  details: [
-                    "• 基于华力微电子40nm工艺进行PR数字单元库的模拟版图设计",
-                    "• 负责版图设计、DRC/LVS验证、参数提取等工作",
-                    "• 确保设计满足工艺规则和性能要求"
-                  ],
-                  technologies: [
-                    "Cadence Virtuoso",
-                    "40nm工艺",
-                    "DRC/LVS",
-                    "参数提取"
-                  ]
-                },
-                {
-                  title: "斗小辣椒手机指纹芯片",
-                  type: "模拟版图设计",
-                  description: "指纹芯片振荡器模块的模拟版图设计与验证",
-                  details: [
-                    "• 基于华力微电子55nm工艺进行指纹芯片振荡器模块设计",
-                    "• 负责振荡器模块的版图设计与验证",
-                    "• 进行电路仿真和性能验证",
-                    "• 确保设计满足指纹识别的性能要求"
-                  ],
-                  technologies: [
-                    "Cadence Virtuoso",
-                    "55nm工艺",
-                    "振荡器设计",
-                    "电路仿真"
-                  ]
-                },
-                {
-                  title: "高清摄头传感器",
-                  type: "模拟版图设计",
-                  description: "1600w/400w/200w摄像头传感器的版图设计与验证",
-                  details: [
-                    "• 基于华力微电子55nm工艺进行摄像头传感器版图设计",
-                    "• 责1600w/400w/200w像素传感器的模拟版图实现",
-                    "• 进行DRC/LVS验证和参数提取",
-                    "• 确保设计满足图像采集的性能指标"
-                  ],
-                  technologies: [
-                    "Cadence Virtuoso",
-                    "55nm工艺",
-                    "CMOS传感器",
-                    "DRC/LVS"
-                  ]
-                }
-              ]}
+              title={currentLangWorkExp.companies.microlight.name}
+              period={currentLangWorkExp.companies.microlight.period}
+              location={currentLangWorkExp.companies.microlight.location}
+              description={currentLangWorkExp.companies.microlight.description}
+              projects={currentLangWorkExp.companies.microlight.projects}
+              translations={{
+                expand: t.projectDetails.expand,
+                collapse: t.projectDetails.collapse,
+                projects: t.projectDetails.projects
+              }}
             />
+
+            {/* 大学教育 */}
             <TimelineItem
               icon={GraduationCap}
-              title="电子科技大学成都学院"
-              period="2011.09-2015.08"
-              location="成都"
-              description="电子科学与技术（微电子）本科"
+              title={currentLangWorkExp.companies.university.name}
+              period={currentLangWorkExp.companies.university.period}
+              location={currentLangWorkExp.companies.university.location}
+              description={currentLangWorkExp.companies.university.description}
+              translations={{
+                expand: t.projectDetails.expand,
+                collapse: t.projectDetails.collapse,
+                projects: t.projectDetails.projects
+              }}
             />
+
+            {/* 半导体公司 */}
             <TimelineItem
               icon={Briefcase}
-              title="都索成易半导体有限公司 模拟电路工程师"
-              period="2014.03-2014.11"
-              location="成都"
-              description="参与富士通50nm工艺下苹果摄像头传感器（索尼IMX系列传感器）模拟电路电源模块实现、电路验证与仿真"
-              projects={[
-                {
-                  title: "索IMX220摄像传感器芯",
-                  type: "模拟电路设计",
-                  description: "iPhone 6摄像头1200万像素传感器的电源管理模块设计与验证",
-                  details: [
-                    "项目背景：",
-                    "基于富士通50nm工艺，为索尼IMX220摄像传感器芯片（iPhone 6摄像头1200W）进行电源管理模块的设计与验证",
-                    "主要工作：",
-                    "1. 版图设计：",
-                    "   • 基于富士通50nm工艺进行BCTOP（电源管理模块）版图设计",
-                    "   • 遵循工艺设计规则和电气规则进行版图实现",
-                    "2. 寄生参数提取：",
-                    "   • 使用StarRC软件进行BA（寄生电容）提取",
-                    "   • 进行EM（电磁场）寄生效应分析",
-                    "3. 电路仿真与验证：",
-                    "   • AC分析：交流特性验证",
-                    "   • DC分析：直流工作点验证",
-                    "   • Tran分析：瞬态响应分析",
-                    "   • SSH分析：索尼电气规则检测",
-                    "4. 性能优化：",
-                    "   • 基于仿真结果优化设计",
-                    "   • 确保电源管理模块满足性能指标",
-                    "   • 优化功耗和面"
-                  ],
-                  technologies: [
-                    "Cadence Virtuoso",
-                    "StarRC",
-                    "50nm工艺",
-                    "模拟版图设计",
-                    "电路仿真",
-                    "寄生提取",
-                    "电源管理"
-                  ]
-                }
-              ]}
+              title={currentLangWorkExp.companies.semiconductor.name}
+              period={currentLangWorkExp.companies.semiconductor.period}
+              location={currentLangWorkExp.companies.semiconductor.location}
+              description={currentLangWorkExp.companies.semiconductor.description}
+              projects={currentLangWorkExp.companies.semiconductor.projects}
+              translations={{
+                expand: t.projectDetails.expand,
+                collapse: t.projectDetails.collapse,
+                projects: t.projectDetails.projects
+              }}
             />
           </div>
         </motion.section>
@@ -1281,8 +1343,8 @@ export function PortfolioPage() {
                     className="w-full md:w-1/2 h-[300px] object-cover rounded-lg"
                   />
                   <div className="md:w-1/2">
-                    <h3 className="text-2xl font-semibold mb-2">{projects[currentProject].title}</h3>
-                    <p className="mb-4 text-muted-foreground">{projects[currentProject].description}</p>
+                    <h3 className="text-2xl font-semibold mb-2">{projects[currentProject].title[lang]}</h3>
+                    <p className="mb-4 text-muted-foreground">{projects[currentProject].description[lang]}</p>
                     <div className="flex flex-wrap gap-2 mb-4">
                       {projects[currentProject].technologies.map((tech, techIndex) => (
                         <Badge key={techIndex} variant="secondary">{tech}</Badge>
@@ -1290,7 +1352,7 @@ export function PortfolioPage() {
                     </div>
                     <Button asChild variant="outline">
                       <a href={projects[currentProject].link} target="_blank" rel="noopener noreferrer" className="flex items-center">
-                        View Project <ExternalLink className="ml-2 h-4 w-4" />
+                        {t.viewProject} <ExternalLink className="ml-2 h-4 w-4" />
                       </a>
                     </Button>
                   </div>
@@ -1323,26 +1385,34 @@ export function PortfolioPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 1.2 }}
         >
-          <h2 className="text-3xl font-bold mb-6 text-primary">{t.hobbies}</h2>
+          <h2 className="text-3xl font-bold mb-6 text-primary">{t.hobbiesTitle}</h2>
           <Tabs defaultValue="travel" className="w-full">
             <TabsList className="grid w-full grid-cols-2 mb-6">
-              <TabsTrigger value="travel">Traveling</TabsTrigger>
-              <TabsTrigger value="gaming">Gaming</TabsTrigger>
+              <TabsTrigger value="travel">{t.hobbies.travel.title}</TabsTrigger>
+              <TabsTrigger value="gaming">{t.hobbies.gaming.title}</TabsTrigger>
             </TabsList>
             <TabsContent value="travel">
               <div className="bg-secondary/30 p-6 rounded-lg">
                 <div className="flex items-center mb-4">
                   <Plane className="w-8 h-8 mr-4 text-primary animate-bounce" />
-                  <h3 className="text-2xl font-semibold">Travel Map</h3>
+                  <h3 className="text-2xl font-semibold">{t.hobbies.travel.title}</h3>
                 </div>
-                <p className="mb-6 text-lg">{t.travelDescription}</p>
+                <p className="mb-6 text-lg">{t.hobbies.travel.description}</p>
                 <div>
                   <h4 className="font-semibold mb-4 text-xl flex items-center">
                     <Globe className="w-6 h-6 mr-2 text-primary" />
-                    {t.visitedCountries}
+                    {t.hobbies.travel.visitedPlaces}
                   </h4>
                   <div className="relative w-full h-[500px] rounded-lg overflow-hidden shadow-xl">
-                    <TravelMap visitedCountries={visitedCountries} plannedCountries={plannedCountries} />
+                    <TravelMap
+                      visitedCountries={visitedCountries}
+                      plannedCountries={plannedCountries}
+                      lang={lang}
+                      translations={{
+                        visitedPlaces: t.hobbies.travel.visitedPlaces,
+                        plannedPlaces: t.hobbies.travel.plannedPlaces
+                      }}
+                    />
                   </div>
                 </div>
               </div>
@@ -1351,10 +1421,10 @@ export function PortfolioPage() {
               <div className="bg-secondary/30 p-6 rounded-lg">
                 <div className="flex items-center mb-6">
                   <Gamepad className="w-8 h-8 mr-4 text-primary animate-pulse" />
-                  <h3 className="text-2xl font-semibold">Gaming Journey</h3>
+                  <h3 className="text-2xl font-semibold">{t.hobbies.gaming.title}</h3>
                 </div>
 
-                <p className="mb-8 text-lg leading-relaxed">{t.gamingDescription}</p>
+                <p className="mb-8 text-lg leading-relaxed">{t.hobbies.gaming.description}</p>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                   {gamingAchievements.map((achievement, index) => (
@@ -1370,16 +1440,14 @@ export function PortfolioPage() {
                         <div className="p-3 bg-primary/20 rounded-lg mr-3">
                           {achievement.icon()}
                         </div>
-                        <h4 className="font-semibold text-lg">{achievement.game}</h4>
+                        <h4 className="font-semibold text-lg">
+                          {t.hobbies.gaming.achievements[achievement.game.toLowerCase() as 'lol' | 'wow' | 'steam'].title}
+                        </h4>
                       </div>
-
                       <div className="space-y-2">
                         <Badge variant="secondary" className="mb-2">
-                          {achievement.achievement}
+                          {t.hobbies.gaming.achievements[achievement.game.toLowerCase() as 'lol' | 'wow' | 'steam'].description}
                         </Badge>
-                        <p className="text-sm text-muted-foreground">
-                          {achievement.details}
-                        </p>
                       </div>
                     </motion.div>
                   ))}
@@ -1389,30 +1457,26 @@ export function PortfolioPage() {
                 <div className="mt-8 bg-card/50 backdrop-blur-sm p-6 rounded-lg">
                   <h4 className="font-semibold text-lg mb-4 flex items-center">
                     <Trophy className="w-5 h-5 mr-2 text-yellow-500" />
-                    游戏统计
+                    {t.hobbies.gaming.stats.title}
                   </h4>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     {/* 英雄联盟2 详细数据 */}
                     <div className="space-y-4">
                       <h5 className="text-sm font-semibold flex items-center gap-2">
-                        <span className="text-red-500">⚔️</span> 英雄联盟2 数据
+                        <span className="text-red-500">⚔️</span> {t.hobbies.gaming.achievements.lol.title}
                       </h5>
                       <div className="grid grid-cols-2 gap-4">
                         <div className="flex items-center space-x-2">
                           <Trophy className="w-4 h-4 text-yellow-500" />
-                          <span className="text-sm text-muted-foreground">排名: Top 1000</span>
+                          <span className="text-sm text-muted-foreground">{t.hobbies.gaming.achievements.lol.stats.rank}</span>
                         </div>
                         <div className="flex items-center space-x-2">
                           <Star className="w-4 h-4 text-primary" />
-                          <span className="text-sm text-muted-foreground">胜率: 65%+</span>
+                          <span className="text-sm text-muted-foreground">{t.hobbies.gaming.achievements.lol.stats.winRate}</span>
                         </div>
                         <div className="flex items-center space-x-2">
                           <Users className="w-4 h-4 text-primary" />
-                          <span className="text-sm text-muted-foreground">比赛场次: 1000+</span>
-                        </div>
-                        <div className="flex items-center space-x-2">
-                          <Medal className="w-4 h-4 text-primary" />
-                          <span className="text-sm text-muted-foreground">擅长位置: 中单/打野</span>
+                          <span className="text-sm text-muted-foreground">{t.hobbies.gaming.achievements.lol.stats.matches}</span>
                         </div>
                       </div>
                     </div>
@@ -1420,20 +1484,20 @@ export function PortfolioPage() {
                     {/* 总体游戏统计 */}
                     <div className="space-y-4">
                       <h5 className="text-sm font-semibold flex items-center gap-2">
-                        <Gamepad className="w-4 h-4 text-primary" /> 总体统计
+                        <Gamepad className="w-4 h-4 text-primary" /> {t.hobbies.gaming.stats.title}
                       </h5>
                       <div className="grid grid-cols-1 gap-2">
                         <div className="flex items-center space-x-2">
                           <Clock className="w-4 h-4 text-primary" />
-                          <span className="text-sm text-muted-foreground">游戏时长: 2000+ 小时</span>
+                          <span className="text-sm text-muted-foreground">{t.hobbies.gaming.stats.totalHours}</span>
                         </div>
                         <div className="flex items-center space-x-2">
                           <Medal className="w-4 h-4 text-primary" />
-                          <span className="text-sm text-muted-foreground">获得成就: 500+</span>
+                          <span className="text-sm text-muted-foreground">{t.hobbies.gaming.stats.achievements}</span>
                         </div>
                         <div className="flex items-center space-x-2">
                           <Users className="w-4 h-4 text-primary" />
-                          <span className="text-sm text-muted-foreground">组队玩家: 1000+</span>
+                          <span className="text-sm text-muted-foreground">{t.hobbies.gaming.stats.teammates}</span>
                         </div>
                       </div>
                     </div>
@@ -1448,21 +1512,31 @@ export function PortfolioPage() {
   )
 }
 
+// 修改 TimelineItem 的 props 类型
+interface TimelineItemProps {
+  icon: React.ElementType;
+  title: string;
+  period: string;
+  location: string;
+  description?: string;
+  projects?: Project[];
+  translations: {
+    expand: string;
+    collapse: string;
+    projects: string;
+  };
+}
+
+// 修改 TimelineItem 组件定义
 function TimelineItem({
   icon: Icon,
   title,
   period,
   location,
   description,
-  projects
-}: {
-  icon: React.ElementType
-  title: string
-  period: string
-  location: string
-  description?: string
-  projects?: Project[]
-}) {
+  projects,
+  translations
+}: TimelineItemProps) {
   const [isExpanded, setIsExpanded] = useState(false);
 
   return (
@@ -1529,9 +1603,9 @@ function TimelineItem({
                 <ChevronRight className="w-4 h-4" />
               </motion.div>
               <span className="font-medium">
-                {isExpanded ? '收起项目详情' : '查看项目详情'}
+                {isExpanded ? translations.collapse : translations.expand}
                 <span className="ml-1 px-2 py-0.5 bg-white/10 rounded-full text-xs">
-                  {projects.length}
+                  {projects?.length} {translations.projects}
                 </span>
               </span>
             </Button>
