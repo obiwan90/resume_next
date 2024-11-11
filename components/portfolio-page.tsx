@@ -324,7 +324,7 @@ const languages: Record<LanguageKey, LanguageContent> = {
     },
     aboutMe: {
       title: "关于我",
-      content: "作为一名全栈开发工程师，我拥有从IC设计到软件开发的独特经历。8年以上企业级应用开发经验，专注于Java后端服务、现代前端框架和云解决方案。擅长解决复杂技术难题，在开发高性能、可扩展系统方面有着丰富经验。目前可接受远程工作机会和由职业项目，我的硬件到云架构的深入理解让我能够提供全面的技术解决方案。期待与您共同创造精彩项目！",
+      content: "作为一名全栈开发工程师，我拥有从IC设计到���件开发的独特经历。8年以上企业级应用开发经验，专注于Java后端服务、现代前端框架和云解决方案。擅长解决复杂技术难题，在开发高性能、可扩展系统方面有着丰富经验。目前可接受远程工作机会和由职业项目，我的硬件到云架构的深入理解让我能够提供全面的技术解决方案。期待与您共同创造精彩项目！",
       remoteWork: {
         title: "远程协作",
         description: "擅长跨时区远程协作，可接受全球项目，提供专业技术支持"
@@ -401,7 +401,7 @@ const languages: Record<LanguageKey, LanguageContent> = {
     about: "IC設計からソフトウェア開発まで、独自の経験を持つフルスタック開発者です。8年以上のエンタープライズアプリケーション開発経験を活かし、Javaバックエンド、モダンなフロントエンドフレームワーク、クラウドソリューションを専門としています。複雑な技術的課の解に長け、高性能でスケーラブルなシステム開発の実績があります。現在、リモートワークやフリーランスプロジェクトを募集中。ハードウェアからクラウドアーキテクチャまでの深い理解を活かし、革新的なソリューションを提供します。",
     skills: "スキル",
     experience: "職歴",
-    hobbiesTitle: "趣味", // 替换原来的 hobbies
+    hobbiesTitle: "趣味", // 替���原来的 hobbies
     projects: "プロジェト",
     travelMap: "私の行マップ",
     contact: "お問い合わせ",
@@ -875,8 +875,8 @@ const skills = [
   }
 ]
 
-// 修改 TravelMap 的动态导入
-const TravelMap = dynamic<{
+// 添加 TravelMapProps 接口
+interface TravelMapProps {
   visitedCountries: Country[];
   plannedCountries: Country[];
   lang: 'en' | 'zh' | 'ja';
@@ -884,7 +884,10 @@ const TravelMap = dynamic<{
     visitedPlaces: string;
     plannedPlaces: string;
   };
-}>(() => import('@/components/TravelMap'), {
+}
+
+// 修改 TravelMap 的动态导入
+const TravelMap = dynamic<TravelMapProps>(() => import('@/components/TravelMap').then(mod => mod.default), {
   ssr: false,
   loading: () => (
     <div className="w-full h-[500px] bg-secondary/30 rounded-lg flex items-center justify-center">

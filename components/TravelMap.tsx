@@ -10,7 +10,6 @@ interface Country {
         zh: string;
         ja: string;
     };
-    nameZh: string;
     coordinates: [number, number];
     type?: string;
     highlights: {
