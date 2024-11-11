@@ -8,9 +8,17 @@ export const workExperience = {
                 description: "Full stack development engineer, responsible for architecture design and development of multiple projects",
                 projects: [
                     {
-                        title: "Warehouse Management System",
+                        title: {
+                            en: "Warehouse Management System",
+                            zh: "仓储管理系统",
+                            ja: "倉庫管理システム"
+                        },
                         type: "Full Stack Development",
-                        description: "Remote development, collaborative development, secondary development of existing warehouse services, implementing multi-warehouse ERP backend services",
+                        description: {
+                            en: "Remote development, collaborative development, secondary development of existing warehouse services, implementing multi-warehouse ERP backend services",
+                            zh: "远程开发，合作开发，对原有的后台仓储服务二次开发，实现多仓储的ERP后台服务",
+                            ja: "リモート開発、協力開発、既存の倉庫管理サービスの二次開発、マルチ倉庫ERPバックエンドサービスの実現"
+                        },
                         details: [
                             "Project Background:",
                             "Remote development, collaborative development, secondary development of existing warehouse services. Core business is warehouse ERP backend service, including multi-user system, warehouse goods tracking, in/out warehouse light control, etc.",
@@ -50,9 +58,17 @@ export const workExperience = {
                 description: "Participated in product requirement analysis, architecture design, coding, technical documentation writing and development work, responsible for backend service development",
                 projects: [
                     {
-                        title: "Second-hand Car Sales Service System",
+                        title: {
+                            en: "Second-hand Car Sales Service System",
+                            zh: "二手汽车销售服务系统",
+                            ja: "中古車販売サービスシステム"
+                        },
                         type: "Full Stack Development",
-                        description: "Second-hand car sales service system, including management backend system, API service, payment system, customer service system",
+                        description: {
+                            en: "Second-hand car sales service system, including management backend system, API service, payment system, customer service system",
+                            zh: "二手汽车销售服务系统，包含管理端后台系统、API服务、支付系统、客服系统",
+                            ja: "中古車販売サービスシステム、管理バックエンドシステム、APIサービス、決済システム、カスタマーサービスシステムを含む"
+                        },
                         details: [
                             "Project Background:",
                             "Second-hand car sales service system, including management backend system, API service, payment system, customer service system",
@@ -92,9 +108,17 @@ export const workExperience = {
                 description: "Participated in the development and maintenance of multiple important Huawei projects",
                 projects: [
                     {
-                        title: "Warehouse Management System",
+                        title: {
+                            en: "Warehouse Management System",
+                            zh: "仓储管理系统",
+                            ja: "倉庫管理システム"
+                        },
                         type: "Full Stack Development",
-                        description: "Remote development, collaborative development, secondary development of existing warehouse services, implementing multi-warehouse ERP backend services",
+                        description: {
+                            en: "Remote development, collaborative development, secondary development of existing warehouse services, implementing multi-warehouse ERP backend services",
+                            zh: "远程开发，合作开发，对原有的后台仓储服务二次开发，实现多仓储的ERP后台服务",
+                            ja: "リモート開発、協力開発、既存の倉庫管理サービスの二次開発、マルチ倉庫ERPバックエンドサービスの実現"
+                        },
                         details: [
                             "Project Background:",
                             "Remote development, collaborative development, secondary development of existing warehouse services. Core business is warehouse ERP backend service, including multi-user system, warehouse goods tracking, in/out warehouse light control, etc.",
@@ -134,9 +158,17 @@ export const workExperience = {
                 description: "Participated in 2K GAME testing department, responsible for testing multiple well-known games",
                 projects: [
                     {
-                        title: "Warehouse Management System",
+                        title: {
+                            en: "Warehouse Management System",
+                            zh: "仓储管理系统",
+                            ja: "倉庫管理システム"
+                        },
                         type: "Full Stack Development",
-                        description: "Remote development, collaborative development, secondary development of existing warehouse services, implementing multi-warehouse ERP backend services",
+                        description: {
+                            en: "Remote development, collaborative development, secondary development of existing warehouse services, implementing multi-warehouse ERP backend services",
+                            zh: "远程开发，合作开发，对原有的后台仓储服务二次开发，实现多仓储的ERP后台服务",
+                            ja: "リモート開発、協力開発、既存の倉庫管理サービスの二次開発、マルチ倉庫ERPバックエンドサービスの実現"
+                        },
                         details: [
                             "Project Background:",
                             "Remote development, collaborative development, secondary development of existing warehouse services. Core business is warehouse ERP backend service, including multi-user system, warehouse goods tracking, in/out warehouse light control, etc.",
@@ -176,9 +208,17 @@ export const workExperience = {
                 description: "Participated in analog layout design and verification of multiple chips",
                 projects: [
                     {
-                        title: "Warehouse Management System",
+                        title: {
+                            en: "Warehouse Management System",
+                            zh: "仓储管理系统",
+                            ja: "倉庫管理システム"
+                        },
                         type: "Full Stack Development",
-                        description: "Remote development, collaborative development, secondary development of existing warehouse services, implementing multi-warehouse ERP backend services",
+                        description: {
+                            en: "Remote development, collaborative development, secondary development of existing warehouse services, implementing multi-warehouse ERP backend services",
+                            zh: "远程开发，合作开发，对原有的后台仓储服务二次开发，实现多仓储的ERP后台服务",
+                            ja: "リモート開発、協力開発、既存の倉庫管理サービスの二次開発、マルチ倉庫ERPバックエンドサービスの実現"
+                        },
                         details: [
                             "Project Background:",
                             "Remote development, collaborative development, secondary development of existing warehouse services. Core business is warehouse ERP backend service, including multi-user system, warehouse goods tracking, in/out warehouse light control, etc.",
@@ -224,9 +264,17 @@ export const workExperience = {
                 description: "Participated in the implementation, verification and simulation of analog circuit power module for Apple camera sensor (Sony IMX series sensor) under Fujitsu 50nm process",
                 projects: [
                     {
-                        title: "Warehouse Management System",
+                        title: {
+                            en: "Warehouse Management System",
+                            zh: "仓储管理系统",
+                            ja: "倉庫管理システム"
+                        },
                         type: "Full Stack Development",
-                        description: "Remote development, collaborative development, secondary development of existing warehouse services, implementing multi-warehouse ERP backend services",
+                        description: {
+                            en: "Remote development, collaborative development, secondary development of existing warehouse services, implementing multi-warehouse ERP backend services",
+                            zh: "远程开发，合作开发，对原有的后台仓储服务二次开发，实现多仓储的ERP后台服务",
+                            ja: "リモート開発、協力開発、既存の倉庫管理サービスの二次開発、マルチ倉庫ERPバックエンドサービスの実現"
+                        },
                         details: [
                             "Project Background:",
                             "Remote development, collaborative development, secondary development of existing warehouse services. Core business is warehouse ERP backend service, including multi-user system, warehouse goods tracking, in/out warehouse light control, etc.",
@@ -270,9 +318,17 @@ export const workExperience = {
                 description: "全栈开发工程师，负责多个项目的架构设计和开发",
                 projects: [
                     {
-                        title: "力运株式会社仓储系统",
+                        title: {
+                            en: "Warehouse Management System",
+                            zh: "仓储管理系统",
+                            ja: "倉庫管理システム"
+                        },
                         type: "全栈开发",
-                        description: "远程开发，合作开发，对原有的后台仓储服务二次开发，实现多仓储的ERP后台服务",
+                        description: {
+                            en: "Remote development, collaborative development, secondary development of existing warehouse services, implementing multi-warehouse ERP backend services",
+                            zh: "远程开发，合作开发，对原有的后台仓储服务二次开发，实现多仓储的ERP后台服务",
+                            ja: "リモート開発、協力開発、既存の倉庫管理サービスの二次開発、マルチ倉庫ERPバックエンドサービスの実現"
+                        },
                         details: [
                             "项目背景：",
                             "远程开发，合作开发，对原有的后台仓储服务二次开发，核心业务是仓储的ERP后台服务，多用户体系、仓储货物追踪、进出库灯架控制等",
@@ -312,9 +368,17 @@ export const workExperience = {
                 description: "参与公司产品的需求分析，架构设计，编码、技术文档编写等开发工作、负责后台服务开发",
                 projects: [
                     {
-                        title: "品冠销售二手汽车销售服务系统",
+                        title: {
+                            en: "Second-hand Car Sales Service System",
+                            zh: "二手汽车销售服务系统",
+                            ja: "中古車販売サービスシステム"
+                        },
                         type: "全栈开发",
-                        description: "二手汽车销售服务系统，包含管理端后台系统、API服务、支付系统、客服系统",
+                        description: {
+                            en: "Second-hand car sales service system, including management backend system, API service, payment system, customer service system",
+                            zh: "二手汽车销售服务系统，包含管理端后台系统、API服务、支付系统、客服系统",
+                            ja: "中古車販売サービスシステム、管理バックエンドシステム、APIサービス、決済システム、カスタマーサービスシステムを含む"
+                        },
                         details: [
                             "项目背景：",
                             "二手汽车销售服务系统，包含管理端后台系统、API服务、支付系统、客服系统",
@@ -354,9 +418,17 @@ export const workExperience = {
                 description: "参与华为多个重要项目的开发和维护工作",
                 projects: [
                     {
-                        title: "力运株式会社仓储系统",
+                        title: {
+                            en: "Warehouse Management System",
+                            zh: "仓储管理系统",
+                            ja: "倉庫管理システム"
+                        },
                         type: "全栈开发",
-                        description: "远程开发，合作开发，对原有的后台仓储服务二次开发，实现多仓储的ERP后台服务",
+                        description: {
+                            en: "Remote development, collaborative development, secondary development of existing warehouse services, implementing multi-warehouse ERP backend services",
+                            zh: "远程开发，合作开发，对原有的后台仓储服务二次开发，实现多仓储的ERP后台服务",
+                            ja: "リモート開発、協力開発、既存の倉庫管理サービスの二次開発、マルチ倉庫ERPバックエンドサービスの実現"
+                        },
                         details: [
                             "项目背景：",
                             "远程开发，合作开发，对原有的后台仓储服务二次开发，核心业务是仓储的ERP后台服务，多用户体系、仓储货物追踪、进出库灯架控制等",
@@ -396,9 +468,17 @@ export const workExperience = {
                 description: "参与2K GAME游戏测试部门，负责多款知名游戏的测试工作",
                 projects: [
                     {
-                        title: "力运株式会社仓储系统",
+                        title: {
+                            en: "Warehouse Management System",
+                            zh: "仓储管理系统",
+                            ja: "倉庫管理システム"
+                        },
                         type: "全栈开发",
-                        description: "远程开发，合作开发，对原有的后台仓储服务二次开发，实现多仓储的ERP后台服务",
+                        description: {
+                            en: "Remote development, collaborative development, secondary development of existing warehouse services, implementing multi-warehouse ERP backend services",
+                            zh: "远程开发，合作开发，对原有的后台仓储服务二次开发，实现多仓储的ERP后台服务",
+                            ja: "リモート開発、協力開発、既存の倉庫管理サービスの二次開発、マルチ倉庫ERPバックエンドサービスの実現"
+                        },
                         details: [
                             "项目背景：",
                             "远程开发，合作开发，对原有的后台仓储服务二次开发，核心业务是仓储的ERP后台服务，多用户体系、仓储货物追踪、进出库灯架控制等",
@@ -438,9 +518,17 @@ export const workExperience = {
                 description: "参与多个芯片的模拟版图设计与验证工作",
                 projects: [
                     {
-                        title: "力运株式会社仓储系统",
+                        title: {
+                            en: "Warehouse Management System",
+                            zh: "仓储管理系统",
+                            ja: "倉庫管理システム"
+                        },
                         type: "全栈开发",
-                        description: "远程开发，合作开发，对原有的后台仓储服务二次开发，实现多仓储的ERP后台服务",
+                        description: {
+                            en: "Remote development, collaborative development, secondary development of existing warehouse services, implementing multi-warehouse ERP backend services",
+                            zh: "远程开发，合作开发，对原有的后台仓储服务二次开发，实现多仓储的ERP后台服务",
+                            ja: "リモート開発、協力開発、既存の倉庫管理サービスの二次開発、マルチ倉庫ERPバックエンドサービスの実現"
+                        },
                         details: [
                             "项目背景：",
                             "远程开发，合作开发，对原有的后台仓储服务二次开发，核心业务是仓储的ERP后台服务，多用户体系、仓储货物追踪、进出库灯架控制等",
@@ -486,9 +574,17 @@ export const workExperience = {
                 description: "参与富士通50nm工艺下苹果摄像头传感器（索尼IMX系列传感器）模拟电路电源模块实现、电路验证与仿真",
                 projects: [
                     {
-                        title: "力运株式会社仓储系统",
+                        title: {
+                            en: "Warehouse Management System",
+                            zh: "仓储管理系统",
+                            ja: "倉庫管理システム"
+                        },
                         type: "全栈开发",
-                        description: "远程开发，合作开发，对原有的后台仓储服务二次开发，实现多仓储的ERP后台服务",
+                        description: {
+                            en: "Remote development, collaborative development, secondary development of existing warehouse services, implementing multi-warehouse ERP backend services",
+                            zh: "远程开发，合作开发，对原有的后台仓储服务二次开发，实现多仓储的ERP后台服务",
+                            ja: "リモート開発、協力開発、既存の倉庫管理サービスの二次開発、マルチ倉庫ERPバックエンドサービスの実現"
+                        },
                         details: [
                             "项目背景：",
                             "远程开发，合作开发，对原有的后台仓储服务二次开发，核心业务是仓储的ERP后台服务，多用户体系、仓储货物追踪、进出库灯架控制等",
@@ -532,9 +628,17 @@ export const workExperience = {
                 description: "フルスタック開発エンジニアとして、複数のプロジェクトのアーキテクチャ設計と開発を担当",
                 projects: [
                     {
-                        title: "力運株式会社倉庫管理システム",
+                        title: {
+                            en: "Warehouse Management System",
+                            zh: "仓储管理系统",
+                            ja: "倉庫管理システム"
+                        },
                         type: "フルスタック開発",
-                        description: "リモート開発、協力開発、既存の倉庫管理サービスの二次開発、マルチ倉庫ERPバックエンドサービスの実現",
+                        description: {
+                            en: "Remote development, collaborative development, secondary development of existing warehouse services, implementing multi-warehouse ERP backend services",
+                            zh: "远程开发，合作开发，对原有的后台仓储服务二次开发，实现多仓储的ERP后台服务",
+                            ja: "リモート開発、協力開発、既存の倉庫管理サービスの二次開発、マルチ倉庫ERPバックエンドサービスの実現"
+                        },
                         details: [
                             "プロジェクト背景：",
                             "リモート開発、協力開発、既存の倉庫管理サービスの二次開発。主要業務は倉庫ERPバックエンドサービス、マルチユーザーシステム、倉庫商品追跡、入出庫ライト制御など",
@@ -574,9 +678,17 @@ export const workExperience = {
                 description: "製品の要件分析、アーキテクチャ設計、コーディング、技術文書作成などの開発作業に参加し、バックエンドサービスの開発を担当",
                 projects: [
                     {
-                        title: "中古車販売サービスシステム",
+                        title: {
+                            en: "Second-hand Car Sales Service System",
+                            zh: "二手汽车销售服务系统",
+                            ja: "中古車販売サービスシステム"
+                        },
                         type: "フルスタック開発",
-                        description: "中古車販売サービスシステム、管理バックエンドシステム、APIサービス、決済システム、カスタマーサービスシステムを含む",
+                        description: {
+                            en: "Second-hand car sales service system, including management backend system, API service, payment system, customer service system",
+                            zh: "二手汽车销售服务系统，包含管理端后台系统、API服务、支付系统、客服系统",
+                            ja: "中古車販売サービスシステム、管理バックエンドシステム、APIサービス、決済システム、カスタマーサービスシステムを含む"
+                        },
                         details: [
                             "プロジェクト背景：",
                             "中古車販売サービスシステム、管理バックエンドシステム、APIサービス、決済システム、カスタマーサービスシステムを含む",
@@ -616,9 +728,17 @@ export const workExperience = {
                 description: "華為の複数の重要プロジェクトの開発とメンテナンスに参加",
                 projects: [
                     {
-                        title: "力運株式会社倉庫管理システム",
+                        title: {
+                            en: "Warehouse Management System",
+                            zh: "仓储管理系统",
+                            ja: "倉庫管理システム"
+                        },
                         type: "フルスタック開発",
-                        description: "リモート開発、協力開発、既存の倉庫管理サービスの二次開発、マルチ倉庫ERPバックエンドサービスの実現",
+                        description: {
+                            en: "Remote development, collaborative development, secondary development of existing warehouse services, implementing multi-warehouse ERP backend services",
+                            zh: "远程开发，合作开发，对原有的后台仓储服务二次开发，实现多仓储的ERP后台服务",
+                            ja: "リモート開発、協力開発、既存の倉庫管理サービスの二次開発、マルチ倉庫ERPバックエンドサービスの実現"
+                        },
                         details: [
                             "プロジェクト背景：",
                             "リモート開発、協力開発、既存の倉庫管理サービスの二次開発。主要業務は倉庫ERPバックエンドサービス、マルチユーザーシステム、倉庫商品追跡、入出庫ライト制御など",
@@ -658,9 +778,17 @@ export const workExperience = {
                 description: "2K GAMEのテスト部門に参加し、複数の有名ゲームのテスト作業を担当",
                 projects: [
                     {
-                        title: "力運株式会社倉庫管理システム",
+                        title: {
+                            en: "Warehouse Management System",
+                            zh: "仓储管理系统",
+                            ja: "倉庫管理システム"
+                        },
                         type: "フルスタック開発",
-                        description: "リモート開発、協力開発、既存の倉庫管理サービスの二次開発、マルチ倉庫ERPバックエンドサービスの実現",
+                        description: {
+                            en: "Remote development, collaborative development, secondary development of existing warehouse services, implementing multi-warehouse ERP backend services",
+                            zh: "远程开发，合作开发，对原有的后台仓储服务二次开发，实现多仓储的ERP后台服务",
+                            ja: "リモート開発、協力開発、既存の倉庫管理サービスの二次開発、マルチ倉庫ERPバックエンドサービスの実現"
+                        },
                         details: [
                             "プロジェクト背景：",
                             "リモート開発、協力開発、既存の倉庫管理サービスの二次開発。主要業務は倉庫ERPバックエンドサービス、マルチユーザーシステム、倉庫商品追跡、入出庫ライト制御など",
@@ -700,9 +828,17 @@ export const workExperience = {
                 description: "複数のチップのアナログレイアウト設計と検証作業に参加",
                 projects: [
                     {
-                        title: "力運株式会社倉庫管理システム",
+                        title: {
+                            en: "Warehouse Management System",
+                            zh: "仓储管理系统",
+                            ja: "倉庫管理システム"
+                        },
                         type: "フルスタック開発",
-                        description: "リモート開発、協力開発、既存の倉庫管理サービスの二次開発、マルチ倉庫ERPバックエンドサービスの実現",
+                        description: {
+                            en: "Remote development, collaborative development, secondary development of existing warehouse services, implementing multi-warehouse ERP backend services",
+                            zh: "远程开发，合作开发，对原有的后台仓储服务二次开发，实现多仓储的ERP后台服务",
+                            ja: "リモート開発、協力開発、既存の倉庫管理サービスの二次開発、マルチ倉庫ERPバックエンドサービスの実現"
+                        },
                         details: [
                             "プロジェクト背景：",
                             "リモート開発、協力開発、既存の倉庫管理サービスの二次開発。主要業務は倉庫ERPバックエンドサービス、マルチユーザーシステム、倉庫商品追跡、入出庫ライト制御など",
@@ -748,9 +884,17 @@ export const workExperience = {
                 description: "富士通50nmプロセスでのAppleカメラセンサー（ソニーIMXシリーズセンサー）のアナログ回路電源モジュールの実装、検証、シミュレーションに参加",
                 projects: [
                     {
-                        title: "力運株式会社倉庫管理システム",
+                        title: {
+                            en: "Warehouse Management System",
+                            zh: "仓储管理系统",
+                            ja: "倉庫管理システム"
+                        },
                         type: "フルスタック開発",
-                        description: "リモート開発、協力開発、既存の倉庫管理サービスの二次開発、マルチ倉庫ERPバックエンドサービスの実現",
+                        description: {
+                            en: "Remote development, collaborative development, secondary development of existing warehouse services, implementing multi-warehouse ERP backend services",
+                            zh: "远程开发，合作开发，对原有的后台仓储服务二次开发，实现多仓储的ERP后台服务",
+                            ja: "リモート開発、協力開発、既存の倉庫管理サービスの二次開発、マルチ倉庫ERPバックエンドサービスの実現"
+                        },
                         details: [
                             "プロジェクト背景：",
                             "リモート開発、協力開発、既存の倉庫管理サービスの二次開発。主要業務は倉庫ERPバックエンドサービス、マルチユーザーシステム、倉庫商品追跡、入出庫ライト制御など",
