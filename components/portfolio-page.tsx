@@ -5,7 +5,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { MapPin, Briefcase, GraduationCap, Gamepad, Plane, Moon, Sun, Globe, Star, ChevronLeft, ChevronRight, ExternalLink, Mail, Github, Linkedin, BrainCircuit, Container, Cloud, Code2, Laptop, Cpu, Rocket, Clock, Trophy, Medal, Users, Lightbulb, CompassIcon } from "lucide-react"
+import { MapPin, Briefcase, GraduationCap, Gamepad, Plane, Moon, Sun, Globe, Star, ChevronLeft, ChevronRight, ExternalLink, Mail, Github, Linkedin, Container, Cloud, Code2, Cpu, Rocket, Clock, Trophy, Medal, Users, Lightbulb } from "lucide-react"
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -892,7 +892,7 @@ export function PortfolioPage() {
                     "   • 对接微信支付宝支付",
                     "   • 基于Redis迟队列订阅管道",
                     "   • 定位的实现区域自动派单",
-                    "   • 超时支付��单处理",
+                    "   • 超时支付单处理",
                     "   • 罚单计算（位置异常超时异常）",
                     "   • Redission锁解决抢单并发",
                     "2. Uniapp功能实现：",
