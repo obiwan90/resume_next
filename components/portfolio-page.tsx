@@ -15,22 +15,28 @@ import {
 import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion"
 import 'leaflet/dist/leaflet.css'
 import Image from 'next/image'
+import dynamic from 'next/dynamic'
 
-// 在文件顶部添加 dynamic import
-import dynamic from 'next/dynamic';
+// 添加类型定义
+interface Country {
+  name: string;
+  nameZh: string;
+  coordinates: [number, number]; // 明确指定为元组类型
+  type: string;
+  highlights: string[];
+  color: string;
+}
 
-// 动态导入地图组件
-const Map = dynamic(
-  () => import('@/components/Map'), // 我们需要创建这个组件
-  {
-    ssr: false, // 禁用服务器端渲染
-    loading: () => (
-      <div className="w-full h-[500px] bg-secondary/30 rounded-lg flex items-center justify-center">
-        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div>
-      </div>
-    )
-  }
-);
+interface Project {
+  title: string;
+  type: string;
+  period?: string;
+  description: string;
+  details: string[];
+  technologies: string[];
+  link?: string;
+  imageSrc?: string;
+}
 
 // 首先定义语言类型
 type LanguageKey = 'en' | 'zh' | 'ja';
@@ -122,7 +128,7 @@ const languages: Record<LanguageKey, LanguageContent> = {
     travelMap: "私の行マップ",
     contact: "お問い合わせ",
     travelDescription: "アジアの様々な地域を探検する機会に恵まれました。東京の賑やかな街並みから、プーケットの静かなビーチ、クアラルンプールの多様な文化、そしてフィリピンの美しい島々まで。それぞれの目的地で独自の体験と忘れられない思い出を得ることができました。",
-    gamingDescription: "ゲームは私にとって単なる趣味以上のもの、それは情熱です。World of Warcraftの壮大なレイドから、League of Legendsの競争的なマッチ、そしてSteamの没入型シングルプレイヤーゲームのストーリーまで、私はつねに次のデジタルアドベンチャーの準備ができています。",
+    gamingDescription: "ゲームは私にとって単なる趣味以上のもの、それは情熱です。World of Warcraftの壮大なレイドから、League of Legendsの競争的なマッチ、そしてSteamの没入型シングルプレ���ヤーゲームのストーリーまで、私はつねに次のデジタルアドベンチャーの準備ができています。",
     visitedCountries: "訪問した国",
     gamingAchievements: "ゲームの実績",
     wechat: "WeChat",
@@ -138,12 +144,12 @@ const languages: Record<LanguageKey, LanguageContent> = {
 }
 
 // 首先更新 visitedCountries 数据
-const visitedCountries = [
+const visitedCountries: Country[] = [
   {
     name: "Japan",
     nameZh: "日本",
-    coordinates: [139.6503, 35.6762],
-    type: "visited", // 添加类型标记
+    coordinates: [139.6503, 35.6762], // 确保是两个数字的元组
+    type: "visited",
     highlights: ["东京", "大阪", "京都", "富士山"],
     color: "#FF4B4B"
   },
@@ -174,11 +180,11 @@ const visitedCountries = [
 ];
 
 // 计划访问的国家
-const plannedCountries = [
+const plannedCountries: Country[] = [
   {
     name: "United States",
     nameZh: "美国",
-    coordinates: [-95.7129, 37.0902],
+    coordinates: [-95.7129, 37.0902], // 确保是两个数字的元组
     type: "planned",
     highlights: ["纽约", "洛杉矶", "旧金山", "黄石公园"],
     color: "#A78BFA"
@@ -476,6 +482,19 @@ const skills = [
     color: "#FFCA28"
   }
 ]
+
+// 修改动态导入
+const TravelMap = dynamic<{
+  visitedCountries: Country[];
+  plannedCountries: Country[];
+}>(() => import('@/components/TravelMap'), {
+  ssr: false,
+  loading: () => (
+    <div className="w-full h-[500px] bg-secondary/30 rounded-lg flex items-center justify-center">
+      <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div>
+    </div>
+  )
+});
 
 export function PortfolioPage() {
   const [theme, setTheme] = useState<'light' | 'dark'>('dark')
@@ -851,7 +870,7 @@ export function PortfolioPage() {
                   description: "企业信息化升级，搭建信息化后台系统",
                   details: [
                     "项目背景：企信息化升级，搭建信息化后台系，主要业务-人员组织架构、项目报表管、项目审核程、与老系统对接生成ODS文件",
-                    "技术架构：ruoyi-plus二开项目、springboot单体、redis消息队列、mysql存储、vue2前端页面、elementui",
+                    "技术架构：ruoyi-plus二开项目、springboot单体、redis消息队列、mysql储、vue2前端页面、elementui",
                     "负责内容：项目架构设计、数据库建表、需求转业务、业务实现"
                   ],
                   technologies: ["Spring Boot", "Redis", "MySQL", "Vue.js", "Element UI"]
@@ -934,7 +953,7 @@ export function PortfolioPage() {
                     "2. Android App WebView混合开发，系统主要包含：",
                     "   • 管理端后台系统",
                     "   • API服务",
-                    "   • 支付系统",
+                    "   • 支付系",
                     "   • 客服系统",
                     "主要功能：",
                     "• API服务：注册、登录、客服、汽车商品展示、维修保养、销售预约、销售评价",
@@ -1039,7 +1058,7 @@ export function PortfolioPage() {
                 {
                   title: "华为印度电信商BA基站系统",
                   type: "后端开发",
-                  description: "为无线部门为印度电信商搭建的基站管理系统，实现设备运营状态的统计和管理",
+                  description: "为无线部门为印度电信商搭建的基站管理系统，实现设备运营状态的统和管理",
                   details: [
                     "项目背景：该系统是华为无线部门为华为客户印度电信商搭建的使用华为设备基站管理系统，管理统计华为运营商下设备运营状态，集库存、修理、责任人一体化统计管理基站设备",
                     "开发环境架构：",
@@ -1147,7 +1166,7 @@ export function PortfolioPage() {
                   ]
                 },
                 {
-                  title: "北斗小辣椒手机指纹芯片",
+                  title: "斗小辣椒手机指纹芯片",
                   type: "模拟版图设计",
                   description: "指纹芯片振荡器模块的模拟版图设计与验证",
                   details: [
@@ -1323,7 +1342,7 @@ export function PortfolioPage() {
                     {t.visitedCountries}
                   </h4>
                   <div className="relative w-full h-[500px] rounded-lg overflow-hidden shadow-xl">
-                    <Map visitedCountries={visitedCountries} plannedCountries={plannedCountries} />
+                    <TravelMap visitedCountries={visitedCountries} plannedCountries={plannedCountries} />
                   </div>
                 </div>
               </div>
